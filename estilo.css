@@ -64,7 +64,7 @@ body{
     background-position: right center; /* importante */
     background-repeat: no-repeat;
 
-    height: 350px; /* más bajo */
+    height: 450px; /* más bajo */
     
     display: flex;
     align-items: center;
@@ -72,8 +72,7 @@ body{
 
     padding-left: 40px;
 }
-
-/* El resto de tu código de .banner-content se mantiene igual */
+
 .banner-content {
     background-color: rgba(53, 54, 74, 0.9);
     padding: 30px;
