@@ -42,7 +42,7 @@ body {
     font-style: italic;
 }
 
-/* ── MENÚ PRINCIPAL ── SOLO el ul directo de nivel superior ── */
+/* ── MENÚ PRINCIPAL ── */
 .kyamo > ul {
     display: flex;
     list-style: none;
@@ -56,15 +56,31 @@ body {
     position: relative;
 }
 
+/* Estilo para los enlaces normales del menú */
 .kyamo > ul > li > a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* ── SUBMENÚ (dropdown) ── aislado para que NO herede flex ── */
+/* ── ELEMENTO PADRE DEL SUBMENÚ (no es enlace) ── */
+.parent-title {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;                    /* indica que es interactivo */
+    display: inline-block;
+    padding: 10px 0;
+    user-select: none;                  /* evita selección de texto al tocar */
+}
+
+.parent-title:hover,
+.parent-title:focus {
+    color: #ffcc00;                     /* feedback visual */
+}
+
+/* ── SUBMENÚ (dropdown) ── */
 .submenu {
-    display: none;                    /* CRUCIAL: oculto siempre al inicio */
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -100,13 +116,14 @@ body {
     padding-left: 28px;
 }
 
-/* Mostrar solo al hover sobre .has-submenu */
-.has-submenu:hover .submenu {
+/* Mostrar submenú al hover o focus */
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu {
     display: block;
 }
 
 /* Flechita indicadora */
-.has-submenu > a::after {
+.parent-title::after {
     content: " ▼";
     font-size: 0.8em;
     margin-left: 6px;
@@ -163,9 +180,16 @@ body {
 
     .kyamo > ul {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
         width: 100%;
         text-align: center;
+    }
+
+    .parent-title {
+        display: block;
+        padding: 14px 0;
+        width: 100%;
+        font-size: 1.1em;
     }
 
     .banner {
@@ -187,7 +211,7 @@ body {
         background-color: #2c2d3f;
     }
 
-    .has-submenu:hover .submenu,
+    /* En móvil el :hover no funciona bien → usamos :focus-within */
     .has-submenu:focus-within .submenu {
         display: block;
     }
