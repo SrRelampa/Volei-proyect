@@ -59,156 +59,102 @@ body{
     font-weight: bold;
 }
 
-/* estilo.css actualizado */
-
-* {
-  box-sizing: border-box;
+/* Reset y base para menús */
+.kyamo ul,
+.main-menu,
+.submenu {
   margin: 0;
   padding: 0;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  background: #f8f9fa;
-  color: #222;
-  line-height: 1.6;
-}
-
-.kyamo {
-  background: #35364a;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 3rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-.left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.logo {
-  width: 120px;
-  height: auto;
-}
-
-.brand-name {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.kyamo ul {
-  display: flex;
   list-style: none;
-  gap: 2.5rem;
 }
 
-.kyamo a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-.kyamo a:hover {
-  color: #ffcc00;
-}
-
-.banner {
-  background: url("imagenes/banner.png") right center / cover no-repeat;
-  aspect-ratio: 21 / 9;          /* más cinematográfico */
-  min-height: 450px;
+/* Menú principal horizontal */
+.main-menu {
   display: flex;
+  gap: 50px;           /* tu gap original */
   align-items: center;
-  padding-left: 8%;
 }
 
-.banner-content {
-  background: rgba(53, 54, 74, 0.88);
+/* Cada ítem del menú principal */
+.main-menu > li {
+  position: relative;   /* ← Esto es CRUCIAL para el submenú */
+}
+
+/* Submenú escondido por defecto */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;            /* justo debajo del padre */
+  left: 0;
+  background-color: #35364a;
+  min-width: 220px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+/* Ítems del submenú */
+.submenu li {
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.submenu li:last-child {
+  border-bottom: none;
+}
+
+.submenu a {
+  display: block;
+  padding: 12px 20px;
   color: white;
-  padding: 2.5rem 2rem;
-  max-width: 420px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-.banner h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-}
-
-.btn-video {
-  display: inline-block;
-  background: #ffcc00;
-  color: #1e1e2e;
-  padding: 0.9rem 1.8rem;
-  border-radius: 50px;
   text-decoration: none;
-  font-weight: bold;
-  margin-top: 1.5rem;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 
-.btn-video:hover {
-  background: white;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(255,204,0,0.4);
+.submenu a:hover {
+  background-color: #ffcc00;
+  color: #1e1e2e;
+  padding-left: 30px;
 }
 
-.info {
-  padding: 4rem 8%;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
+/* Mostrar al hover */
+.has-submenu:hover .submenu {
+  display: block;
 }
 
-.info h2 {
-  font-family: 'Poppins', sans-serif;
-  color: #35364a;
-  margin-bottom: 1.2rem;
+/* Flechita indicadora */
+.has-submenu > a::after {
+  content: " ▼";
+  font-size: 0.75em;
+  margin-left: 8px;
+  vertical-align: middle;
 }
 
-/* ── Mobile ─────────────────────────────────────── */
+/* En móvil: hacemos que funcione al tocar */
 @media (max-width: 768px) {
-  .kyamo {
+  .main-menu {
     flex-direction: column;
-    padding: 1rem 1.5rem;
-    gap: 1rem;
-  }
-
-  .kyamo ul {
-    flex-direction: column;
-    gap: 1rem;
+    gap: 15px;
+    width: 100%;
     text-align: center;
   }
-
-  .banner {
-    aspect-ratio: 1 / 1.1;
-    padding-left: 5%;
-    background-position: center;
+  
+  .has-submenu {
+    width: 100%;
   }
-
-  .banner h1 {
-    font-size: 2.2rem;
+  
+  .submenu {
+    position: static;     /* no absolute en móvil */
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: #2a2b3c; /* un poco más oscuro para diferenciar */
   }
-
-  .banner-content {
-    padding: 1.8rem 1.5rem;
-    max-width: 90%;
+  
+  .has-submenu:hover .submenu,
+  .has-submenu:focus-within .submenu {
+    display: block;
   }
 }
-
 .banner {
     background-image: url("imagenes/banner.png");
     background-size: cover;
