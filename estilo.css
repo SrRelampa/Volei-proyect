@@ -56,26 +56,36 @@ body {
     position: relative;
 }
 
-/* Estilo para los enlaces normales del menú */
+/* Enlaces normales del menú */
 .kyamo > ul > li > a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* ── ELEMENTO PADRE DEL SUBMENÚ (no es enlace) ── */
+/* ── TÍTULO DEL SUBMENÚ (Posiciones) ── */
 .parent-title {
-    color: white;
+    color: white !important;                /* forzamos blanco con prioridad */
     font-weight: bold;
-    cursor: pointer;                    /* indica que es interactivo */
+    cursor: pointer;
     display: inline-block;
     padding: 10px 0;
-    user-select: none;                  /* evita selección de texto al tocar */
+    user-select: none;
+    transition: color 0.2s;
 }
 
 .parent-title:hover,
 .parent-title:focus {
-    color: #ffcc00;                     /* feedback visual */
+    color: #ffcc00 !important;
+}
+
+/* Flechita indicadora */
+.parent-title::after {
+    content: " ▼";
+    font-size: 0.75em;
+    margin-left: 6px;
+    opacity: 0.8;
+    vertical-align: middle;
 }
 
 /* ── SUBMENÚ (dropdown) ── */
@@ -116,18 +126,9 @@ body {
     padding-left: 28px;
 }
 
-/* Mostrar submenú al hover o focus */
-.has-submenu:hover .submenu,
-.has-submenu:focus-within .submenu {
+/* Mostrar submenú */
+.has-submenu:hover .submenu {
     display: block;
-}
-
-/* Flechita indicadora */
-.parent-title::after {
-    content: " ▼";
-    font-size: 0.8em;
-    margin-left: 6px;
-    opacity: 0.8;
 }
 
 /* Banner */
@@ -180,27 +181,17 @@ body {
 
     .kyamo > ul {
         flex-direction: column;
-        gap: 8px;
+        gap: 0;
         width: 100%;
         text-align: center;
     }
 
     .parent-title {
         display: block;
-        padding: 14px 0;
         width: 100%;
+        padding: 16px 0;                    /* Área grande para tocar */
         font-size: 1.1em;
-    }
-
-    .banner {
-        aspect-ratio: 4 / 5;
-        padding-left: 20px;
-        background-position: center;
-    }
-
-    .banner-content {
-        width: 90%;
-        padding: 25px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .submenu {
@@ -209,10 +200,22 @@ body {
         box-shadow: none;
         border-radius: 0;
         background-color: #2c2d3f;
+        padding-bottom: 10px;
     }
 
-    /* En móvil el :hover no funciona bien → usamos :focus-within */
-    .has-submenu:focus-within .submenu {
+    /* Mejor comportamiento en móvil: solo abre al tocar el título */
+    .has-submenu .submenu {
+        display: none;
+    }
+
+    .has-submenu:focus-within .submenu,
+    .has-submenu:active .submenu {
         display: block;
+    }
+
+    /* Evitamos que el clic en el título active enlaces hijos */
+    .has-submenu .submenu a {
+        pointer-events: auto;
+        padding: 16px 30px;                 /* más fácil de tocar */
     }
 }
