@@ -82,13 +82,6 @@ body{
     color: white;
 }
 
-@media (min-width: 1400px){
-    .banner{
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-color: #000; /* o el color que combine */
-    }
-
 /* Estilo para el botón del video */
 .btn-video {
     display: inline-block;
