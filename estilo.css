@@ -35,10 +35,13 @@ body{
 }
 
 .brand-name{
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: bold;
+    color: white;
+    font-size: 26px;
+    font-weight: 800;
     margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-style: italic;
 }
 
 .kyamo ul{
