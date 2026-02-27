@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-<title> voleigame </title>
-<link rel="stylesheet" href="estilo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoleiGame</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
-
 <body>
+
 <div class="kyamo">
     <div class="left">
-        <img src="imagenes/Logo.png" class="logo">
-        <h2 class="brand-name"> VoleiGame </h2>
+        <img src="imagenes/Logo.png" alt="Logo VoleiGame" class="logo">
+        <h2 class="brand-name">VoleiGame</h2>
     </div>
 
-    <ul>
+    <ul class="main-menu">
         <li><a href="index.html">Inicio</a></li>
+        
         <li class="has-submenu">
-      <a href="Posiciones.html">Posiciones ▼</a>
-    </li>
+            <a href="Posiciones.html">Posiciones ▼</a>
+            <ul class="submenu">
+                <li><a href="Posiciones.html">Posiciones de jugadores</a></li>
+                <li><a href="Ofensivas.html">Estrategias ofensivas</a></li>
+                <li><a href="Defensivas.html">Estrategias defensivas</a></li>
+            </ul>
+        </li>
+        
         <li><a href="Reglas.html">Reglas</a></li>
     </ul>
 </div>
+
 <div class="banner">
     <div class="banner-content">
         <h1>¿Qué es el voleibol?</h1>
@@ -31,9 +40,10 @@
         </a>
     </div>
 </div>
-<div class="info">
-<p> hola </p>
-</div>
-</body>
 
+<div class="info">
+    <p>hola</p>
+</div>
+
+</body>
 </html>
