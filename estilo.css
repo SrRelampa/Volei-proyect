@@ -27,6 +27,17 @@ body{
     width: 150px;
 }
 
+.logo-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-name{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
 
 .kyamo ul{
     display: flex;
