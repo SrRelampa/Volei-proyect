@@ -1,5 +1,5 @@
 @media (max-width: 768px) {
-    /* estilos para móvil */
+    /* estilos base para móvil */
 }
 
 * {
@@ -56,21 +56,21 @@ body {
     position: relative;
 }
 
-/* Enlaces normales del menú */
+/* Enlaces normales (Inicio, Reglas, etc.) */
 .kyamo > ul > li > a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* Título del submenú (Posiciones) */
+/* ── TÍTULO "Posiciones" (padre del submenú) ── */
 .parent-title {
-    color: white !important;          /* fuerza blanco */
+    color: white !important;
     font-weight: bold;
     cursor: pointer;
     padding: 10px 0;
     user-select: none;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
 }
 
 .parent-title:hover,
@@ -78,7 +78,7 @@ body {
     color: #ffcc00 !important;
 }
 
-/* Flechita */
+/* Flecha indicadora */
 .parent-title::after {
     content: " ▼";
     font-size: 0.8em;
@@ -86,7 +86,7 @@ body {
     opacity: 0.8;
 }
 
-/* ── SUBMENÚ (dropdown) ── */
+/* ── SUBMENÚ ── */
 .submenu {
     display: none;
     position: absolute;
@@ -115,7 +115,7 @@ body {
     padding: 12px 20px;
     color: white;
     text-decoration: none;
-    transition: background 0.25s, padding-left 0.25s;
+    transition: all 0.25s;
 }
 
 .submenu a:hover {
@@ -124,7 +124,7 @@ body {
     padding-left: 28px;
 }
 
-/* Mostrar submenú */
+/* Mostrar en escritorio */
 .has-submenu:hover .submenu {
     display: block;
 }
@@ -169,7 +169,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* ── RESPONSIVE (móvil) ── */
+/* ── RESPONSIVE MÓVIL ── */
 @media (max-width: 768px) {
     .kyamo {
         flex-direction: column;
@@ -184,36 +184,38 @@ body {
         text-align: center;
     }
 
+    /* Título "Posiciones" en móvil */
     .parent-title {
         display: block;
         width: 100%;
-        padding: 16px 0;                    /* Área grande para tocar */
-        font-size: 1.1em;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
+        padding: 18px 0;
+        font-size: 1.15em;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
+    /* Submenú en móvil */
     .submenu {
         position: static;
         width: 100%;
         box-shadow: none;
         border-radius: 0;
         background-color: #2c2d3f;
-        padding-bottom: 10px;
+        padding: 0 0 12px 0;
     }
 
-    /* Mejor comportamiento en móvil: solo abre al tocar el título */
+    /* Control de apertura/cierre en móvil */
     .has-submenu .submenu {
         display: none;
     }
 
     .has-submenu:focus-within .submenu,
     .has-submenu:active .submenu {
-        display: block;
+        display: block !important;
     }
 
-    /* Evitamos que el clic en el título active enlaces hijos */
-    .has-submenu .submenu a {
-        pointer-events: auto;
-        padding: 16px 30px;                 /* más fácil de tocar */
+    /* Enlaces dentro del submenú más fáciles de tocar */
+    .submenu a {
+        padding: 18px 40px;
+        font-size: 1.05em;
     }
 }
