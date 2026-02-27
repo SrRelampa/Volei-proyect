@@ -1,0 +1,79 @@
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.kyamo{
+    background-color: #35364a;
+    width: 94.5%;
+
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+
+    padding: 10px 40px;
+}
+
+
+.logo{
+    width: 150px;
+}
+
+
+.kyamo ul{
+    display: flex;
+    list-style: none;
+    gap: 50px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.kyamo li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.banner {
+    background-image: url("imagenes/banner.png");
+    background-size: cover;
+    background-position: right center; /* importante */
+    background-repeat: no-repeat;
+
+    height: 350px; /* más bajo */
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding-left: 8%;
+}
+
+/* El resto de tu código de .banner-content se mantiene igual */
+.banner-content {
+    background-color: rgba(53, 54, 74, 0.9);
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    color: white;
+}
+
+
+/* Estilo para el botón del video */
+.btn-video {
+    display: inline-block;
+    background-color: #ffcc00; /* Un amarillo llamativo */
+    color: #35364a;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn-video:hover {
+    background-color: #ffffff;
+    color: #000;
+}
