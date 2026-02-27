@@ -34,7 +34,8 @@ body{
 }
 
 .brand-name{
-    color: white;
+    color: #FFFFFF;
+    text-align: center;
     font-size: 20px;
     font-weight: bold;
 }
