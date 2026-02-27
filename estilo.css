@@ -1,3 +1,7 @@
+@media (max-width: 768px) {
+   /* estilos para móvil */
+}
+
 *{
     box-sizing: border-box;
 }
