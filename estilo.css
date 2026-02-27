@@ -42,7 +42,7 @@ body {
     font-style: italic;
 }
 
-/* ── MENÚ PRINCIPAL ── Solo afecta al <ul> directo dentro de .kyamo ── */
+/* ── MENÚ PRINCIPAL ── SOLO el ul directo de nivel superior ── */
 .kyamo > ul {
     display: flex;
     list-style: none;
@@ -62,9 +62,9 @@ body {
     font-weight: bold;
 }
 
-/* ── SUBMENÚ (dropdown) ── */
+/* ── SUBMENÚ (dropdown) ── aislado para que NO herede flex ── */
 .submenu {
-    display: none;                    /* oculto por defecto */
+    display: none;                    /* CRUCIAL: oculto siempre al inicio */
     position: absolute;
     top: 100%;
     left: 0;
@@ -79,7 +79,7 @@ body {
 }
 
 .submenu li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
 .submenu li:last-child {
@@ -100,7 +100,7 @@ body {
     padding-left: 28px;
 }
 
-/* Mostrar submenú al hover */
+/* Mostrar solo al hover sobre .has-submenu */
 .has-submenu:hover .submenu {
     display: block;
 }
@@ -179,13 +179,12 @@ body {
         padding: 25px 20px;
     }
 
-    /* Submenú en móvil */
     .submenu {
         position: static;
         width: 100%;
         box-shadow: none;
         border-radius: 0;
-        background-color: #2c2d3f;   /* tono diferente para diferenciar */
+        background-color: #2c2d3f;
     }
 
     .has-submenu:hover .submenu,
