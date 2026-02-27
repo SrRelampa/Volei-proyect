@@ -6,7 +6,7 @@ body{
 
 .kyamo{
     background-color: #35364a;
-    width: 94.5%;
+    width: 100%;
 
     align-items: center;
     justify-content: space-between;
@@ -76,4 +76,5 @@ body{
 .btn-video:hover {
     background-color: #ffffff;
     color: #000;
+
 }
