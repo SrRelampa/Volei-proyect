@@ -479,49 +479,84 @@ body {
     max-width: 280px;
   }
 }
-
 .site-footer {
-  background: #0f172a; /* mismo azul oscuro que el resto para continuidad */
+  background: #0f172a;
   color: #94a3b8;
-  padding: 60px 5% 40px;
-  text-align: center;
-  border-top: 1px solid rgba(249, 115, 22, 0.15); /* línea sutil naranja */
+  padding: 50px 5% 30px;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(249, 115, 22, 0.15);
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
 }
 
-.footer-logo {
-  margin-bottom: 30px;
+.footer-column {
+  flex: 1;
+  min-width: 220px;
+  text-align: center; /* centrado en móvil, puedes cambiar a left en desktop si prefieres */
 }
 
-.logo-img {
-  width: 80px; /* ajusta según el tamaño de tu logo */
+.footer-logo-img {
+  width: 90px;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.footer-logo span {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #f97316; /* naranja para destacar */
-  letter-spacing: 1px;
+.footer-copyright {
+  margin-top: 20px;
+  line-height: 1.5;
 }
 
-.footer-social {
-  margin: 30px 0;
+h4 {
+  color: #f97316;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  margin-bottom: 12px;
+}
+
+.contact-icon {
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.contact-list a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-list a:hover {
+  color: #f97316;
+}
+
+.social-icons {
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 20px;
 }
 
 .social-icon {
-  width: 40px;
-  height: 40px;
-  transition: all 0.3s ease;
-  filter: brightness(0.8); /* para que se vean bien en fondo oscuro */
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  transition: transform 0.3s, filter 0.3s;
+  filter: brightness(0.9);
 }
 
 .social-icon:hover {
@@ -529,17 +564,15 @@ body {
   filter: brightness(1.2);
 }
 
-.footer-copyright {
-  font-size: 0.95rem;
-  margin-top: 20px;
-}
-
-.footer-copyright p {
-  margin: 5px 0;
-  color: #64748b;
-}
-
-.footer-copyright p:last-child {
-  color: #f97316;
-  font-weight: 500;
+/* Responsive: en móvil se apilan verticalmente */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-column {
+    margin-bottom: 30px;
+  }
 }
