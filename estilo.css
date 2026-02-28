@@ -169,6 +169,105 @@ body {
     transform: translateY(-2px);
 }
 
+/* Estilos Generales de Secciones */
+section {
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2em;
+    color: #35364a;
+    margin-bottom: 40px;
+}
+
+/* ── CARDS (Tu boceto) ── */
+.cards-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex: 1;
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-image {
+    height: 200px;
+    background: #ddd; /* Color temporal si no hay imagen */
+}
+
+.card-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.btn-ir {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #35364a;
+    padding: 10px 40px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* ── HISTORIA Y GRID ── */
+.history {
+    background-color: #f9f9f9;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.feature-item {
+    background: #35364a;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* ── FOOTER ── */
+.main-footer {
+    background: #2c2d3f;
+    color: white;
+    padding: 40px 20px 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 20px;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 20px;
+    opacity: 0.7;
+}
+
 /* ── RESPONSIVE MÓVIL ── */
 @media (max-width: 768px) {
     .kyamo {
