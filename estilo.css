@@ -337,11 +337,11 @@ body {
   padding: 120px 8% 100px;
   position: relative;
 }
-/* Sección Historia - Versión híbrida (desktop horizontal / móvil vertical) */
+/* Sección Historia - Compacta para desktop */
 .historia-desktop {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: white;
-  padding: 80px 5% 60px;
+  padding: 80px 5% 60px;  /* menos padding arriba/abajo */
   position: relative;
 }
 
@@ -349,152 +349,118 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("imagenes/siluetas-volei.png") center/cover no-repeat; /* imagen sutil de fondo */
-  opacity: 0.07;
+  background: url("imagenes/siluetas-volei.png") center/cover no-repeat;
+  opacity: 0.06;  /* más sutil */
 }
 
 .historia-wrapper {
-  max-width: 1400px;
+  max-width: 1300px;  /* no tan ancho */
   margin: 0 auto;
-  position: relative;
 }
 
 .historia-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;  /* menos espacio abajo */
 }
 
 .historia-header h2 {
-  font-size: 3.5rem; /* más controlado para no romper en móvil */
+  font-size: 3.2rem;  /* más pequeño que 4.5rem */
   font-weight: 900;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   background: linear-gradient(90deg, #f97316, #fbbf24);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
 }
 
 .historia-header p {
   font-size: 1.3rem;
   color: #94a3b8;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
-/* Timeline base: en móvil vertical por defecto */
 .timeline-horizontal {
-  display: flex;
-  flex-direction: column; /* vertical por default (móvil) */
-  gap: 40px;
   position: relative;
-  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;  /* alineación arriba para no estirar */
+  gap: 30px;  /* gap más pequeño */
+  padding: 50px 0;  /* menos altura */
 }
 
-/* Línea vertical en móvil */
-.timeline-horizontal::before {
-  content: "";
+.timeline-line {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 6px;
-  background: linear-gradient(to bottom, #f97316, #ea580c);
-  transform: translateX(-50%);
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 5px;  /* línea más delgada */
+  background: linear-gradient(to right, #f97316, #ea580c);
   z-index: 0;
   border-radius: 3px;
 }
 
-/* Cada tarjeta en móvil: centrada con año arriba */
 .timeline-card {
-  background: rgba(30, 41, 59, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 40px 25px;
-  border: 2px solid rgba(249, 115, 22, 0.3);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  flex: 1;
+  background: rgba(30, 41, 59, 0.75);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 30px 20px 25px;  /* menos padding interno */
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   text-align: center;
   position: relative;
-  z-index: 1;
   transition: all 0.4s ease;
-  max-width: 90%;
-  margin: 0 auto;
+  max-width: 280px;  /* tarjetas más angostas */
 }
 
 .timeline-card:hover {
-  transform: translateY(-10px);
-  border-color: #fb923c;
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(249, 115, 22, 0.2);
 }
 
 .card-year {
   position: absolute;
-  top: -20px;
+  top: -18px;
   left: 50%;
   transform: translateX(-50%);
   background: #f97316;
   color: white;
-  padding: 8px 16px;
-  border-radius: 50px;
-  font-size: 1.2rem;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 1.1rem;
   font-weight: bold;
   box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
 }
 
 .card-icon {
-  font-size: 4rem;
-  margin-bottom: 16px;
+  font-size: 3.2rem;  /* iconos más pequeños */
+  margin-bottom: 12px;
 }
 
 .timeline-card h3 {
-  font-size: 1.6rem;
-  margin-bottom: 12px;
+  font-size: 1.5rem;  /* títulos más compactos */
+  margin-bottom: 10px;
   color: #fed7aa;
 }
 
 .timeline-card p {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.95rem;  /* texto más pequeño pero legible */
+  line-height: 1.5;
   color: #cbd5e1;
+  margin: 0;
 }
 
 .finale {
   background: linear-gradient(135deg, #f97316, #ea580c);
   border: none;
+  transform: scale(1.05);  /* solo un poco más grande */
+  max-width: 320px;
 }
 
-/* Desktop: horizontal con línea central */
-@media (min-width: 992px) {  /* tablets grandes y desktop */
-  .timeline-horizontal {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    padding: 80px 0;
-  }
-
-  /* Línea horizontal en desktop */
-  .timeline-horizontal::before {
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 6px;
-    width: auto;
-    transform: translateY(-50%);
-  }
-
-  .timeline-card {
-    flex: 1;
-    max-width: 320px;
-    padding: 50px 30px 40px;
-    text-align: center;
-  }
-
-  .card-year {
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .finale {
-    transform: scale(1.1); /* destaca en el centro */
-    max-width: 360px;
-  }
+.quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-top: 12px;
+  color: #fff7ed;
 }
