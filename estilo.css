@@ -233,7 +233,9 @@ body {
 
 /* La tarjeta blanca */
 .card {
-  background-color: white;
+  background-image: url(imagenes/
+  background-size: cover;
+  background-position: center
   border-radius: 20px; /* Esquinas muy redondeadas */
   display: flex; /* Para poner imagen a la izquierda y texto a la derecha */
   overflow: hidden; /* Para que la imagen respete los bordes redondeados */
