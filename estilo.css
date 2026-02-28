@@ -244,14 +244,6 @@ body {
   height: 200px;
 }
 
-/* Espacio para la imagen/patrón naranja */
-.card-image {
-  width: 40%;
-  background-color: #ff9d5c; /* Color naranja base */
-  /* Aquí puedes poner una imagen de fondo con iconos */
-  background-image: url('tu-patron-de-iconos.png'); 
-  background-size: cover;
-}
 
 /* Contenedor del texto */
 .card-content {
