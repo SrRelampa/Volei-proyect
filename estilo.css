@@ -330,3 +330,151 @@ body {
   background-color: #1f2937;
   transform: translateY(-3px);
 }
+
+.historia-desktop {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+  padding: 120px 8% 100px;
+  position: relative;
+}
+
+.historia-desktop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("imagenes/fondo-siluetas-volei.png") center/cover no-repeat;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.historia-wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.historia-header {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.historia-header h2 {
+  font-size: 5rem;
+  font-weight: 900;
+  margin: 0 0 24px;
+  background: linear-gradient(90deg, #f97316, #fbbf24);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+.historia-header p {
+  font-size: 1.6rem;
+  color: #94a3b8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline-horizontal {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(to right, #f97316, #ea580c, #f97316);
+  transform: translateY(-50%);
+  z-index: 0;
+  border-radius: 4px;
+}
+
+.timeline-card {
+  flex: 1;
+  max-width: 340px;
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 50px 35px 40px;
+  border: 2px solid rgba(249, 115, 22, 0.25);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  text-align: center;
+  position: relative;
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.timeline-card:hover {
+  transform: translateY(-25px);
+  border-color: #fb923c;
+  box-shadow: 0 35px 80px rgba(249, 115, 22, 0.25);
+}
+
+.card-year {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f97316;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.5);
+  white-space: nowrap;
+}
+
+.card-icon {
+  font-size: 5rem;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+.timeline-card h3 {
+  font-size: 2rem;
+  margin: 0 0 20px;
+  color: #fed7aa;
+}
+
+.timeline-card p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.finale {
+  background: linear-gradient(145deg, #f97316, #ea580c);
+  border: none;
+  color: white;
+  transform: scale(1.12);
+  max-width: 380px;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1.35rem;
+  margin-top: 24px;
+  color: #fff7ed;
+  opacity: 0.95;
+}
+
+/* Ajuste para pantallas ultra anchas */
+@media (min-width: 1600px) {
+  .timeline-horizontal {
+    gap: 100px;
+  }
+  .timeline-card {
+    max-width: 400px;
+    padding: 60px 45px 50px;
+  }
+}
