@@ -233,7 +233,7 @@ body {
 
 /* La tarjeta blanca */
 .card {
-  background-image: url(imagenes/
+  background-image: url(imagenes/fondo-cards1.png)
   background-size: cover;
   background-position: center
   border-radius: 20px; /* Esquinas muy redondeadas */
