@@ -191,13 +191,12 @@ section {
 }
 
 .card {
+    display: flex; /* Para poner contenido al lado de la imagen */
+    align-items: center;
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    flex: 1;
-    transition: transform 0.3s ease;
-    border: 1px solid #eee;
+    margin-bottom: 20px;
 }
 
 .card:hover {
@@ -205,13 +204,19 @@ section {
 }
 
 .card-image {
-    height: 200px;
-    background: #ddd; /* Color temporal si no hay imagen */
+    width: 40%; /* La imagen ocupa el lado derecho */
+    height: 100%;
+    min-height: 250px;
+    background-image: url('tu-patron-de-iconos.png'); /* Aquí puedes usar el patrón naranja */
+    background-size: cover;
+    order: 2; /* Mueve la imagen a la derecha */
 }
 
 .card-content {
-    padding: 25px;
-    text-align: center;
+    width: 60%; /* El texto y botón a la izquierda */
+    padding: 30px;
+    text-align: left; /* Alineado a la izquierda como en tu dibujo */
+    order: 1;
 }
 
 .btn-ir {
