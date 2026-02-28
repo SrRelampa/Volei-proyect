@@ -217,7 +217,7 @@ section {
     width: 40%; 
     order: 2; 
     /* Aquí pones la otra imagen (foto de jugadores, etc.) */
-    background-image: url('imagenes/tu-otra-foto.jpg'); 
+    background-image: url('imagenes/fondo-cards1.png'); 
     background-size: cover;
     background-position: center;
     /* Un borde sutil para separar la foto del fondo naranja */
