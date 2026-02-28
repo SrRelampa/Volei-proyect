@@ -396,19 +396,23 @@ body {
   border-radius: 2px;
 }
 
-/* Tarjetas mucho más compactas */
+/* Tarjetas de la timeline - Aseguramos centrado perfecto en todas */
 .timeline-card {
   flex: 1;
   background: rgba(30, 41, 59, 0.75);
   backdrop-filter: blur(8px);
   border-radius: 14px;
-  padding: 20px 15px 18px;  /* padding interno reducido */
+  padding: 20px 18px 18px;          /* padding simétrico y reducido */
   border: 1px solid rgba(249, 115, 22, 0.2);
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  text-align: center;
+  text-align: center;               /* centrado general */
   position: relative;
   transition: all 0.3s ease;
-  max-width: 240px;  /* tarjetas angostas para caber bien */
+  max-width: 240px;
+  display: flex;                    /* nuevo: flex para controlar interno */
+  flex-direction: column;
+  align-items: center;              /* todo centrado horizontalmente */
+  justify-content: center;          /* vertical si hay espacio */
 }
 
 .timeline-card:hover {
@@ -416,6 +420,35 @@ body {
   box-shadow: 0 15px 35px rgba(249, 115, 22, 0.18);
 }
 
+/* Icono centrado */
+.card-icon {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Título centrado */
+.timeline-card h3 {
+  font-size: 1.3rem;
+  margin: 0 0 8px 0;
+  color: #fed7aa;
+  text-align: center;
+  width: 100%;                      /* fuerza ancho completo para centrar bien textos largos */
+}
+
+/* Texto descriptivo: centrado y con ajuste automático */
+.timeline-card p {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #cbd5e1;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  padding: 0 4px;                   /* pequeño padding interno para que no toque los bordes */
+  box-sizing: border-box;
+}
+
+/* Año arriba, siempre centrado */
 .card-year {
   position: absolute;
   top: -16px;
@@ -428,26 +461,8 @@ body {
   font-size: 1rem;
   font-weight: bold;
   box-shadow: 0 3px 10px rgba(249, 115, 22, 0.4);
+  white-space: nowrap;
 }
-
-.card-icon {
-  font-size: 2.8rem;  /* iconos más pequeños */
-  margin-bottom: 10px;
-}
-
-.timeline-card h3 {
-  font-size: 1.3rem;  /* títulos compactos */
-  margin: 0 0 8px;
-  color: #fed7aa;
-}
-
-.timeline-card p {
-  font-size: 0.9rem;  /* texto más pequeño pero legible */
-  line-height: 1.45;
-  color: #cbd5e1;
-  margin: 0;
-}
-
 .finale {
   background: linear-gradient(135deg, #f97316, #ea580c);
   border: none;
