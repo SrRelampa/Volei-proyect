@@ -183,20 +183,25 @@ section {
     margin-bottom: 40px;
 }
 
-/* ── CARDS (Tu boceto) ── */
+/* ── CARDS (Basado en tu patrón naranja) ── */
 .cards-container {
     display: flex;
     gap: 30px;
     justify-content: center;
+    flex-wrap: wrap; /* Para que en móvil se acomoden bien */
 }
 
 .card {
-    display: flex; /* Para poner contenido al lado de la imagen */
-    align-items: center;
+    display: flex; 
+    align-items: stretch; /* Estira la imagen para que ocupe todo el alto */
     background: white;
-    border-radius: 15px;
+    border-radius: 20px;
     overflow: hidden;
     margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 550px; /* Tamaño ideal para que no sean gigantes */
 }
 
 .card:hover {
@@ -204,30 +209,46 @@ section {
 }
 
 .card-image {
-    width: 40%; /* La imagen ocupa el lado derecho */
-    height: 100%;
-    min-height: 250px;
-    background-image: url('imagenes/fondo-cards1.png'); /* Aquí puedes usar el patrón naranja */
+    width: 40%; 
+    background-image: url('imagenes/Diseño sin título.png'); /* Tu patrón naranja */
     background-size: cover;
-    order: 2; /* Mueve la imagen a la derecha */
+    background-position: center;
+    order: 2; /* Imagen a la derecha según tu dibujo */
+    border-left: 2px solid rgba(0,0,0,0.05); /* Separación sutil */
 }
 
 .card-content {
-    width: 60%; /* El texto y botón a la izquierda */
+    width: 60%; 
     padding: 30px;
-    text-align: left; /* Alineado a la izquierda como en tu dibujo */
-    order: 1;
+    text-align: left; 
+    order: 1; /* Texto a la izquierda */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-content h3 {
+    margin: 0 0 10px 0;
+    color: #35364a;
+    font-size: 1.5em;
+    text-transform: uppercase;
 }
 
 .btn-ir {
-    display: inline-block;
-    background-color: #ffcc00;
-    color: #35364a;
-    padding: 10px 40px;
-    border-radius: 25px;
+    align-self: flex-start; /* Hace que el botón no ocupe todo el ancho */
+    background-color: #ef863d; /* Usamos el naranja del patrón para el botón */
+    color: white;
+    padding: 12px 35px;
+    border-radius: 50px; /* Botón más redondeado como en tu boceto */
     text-decoration: none;
     font-weight: bold;
     margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.btn-ir:hover {
+    background-color: #35364a;
+    color: #ffcc00;
 }
 
 /* ── HISTORIA Y GRID ── */
