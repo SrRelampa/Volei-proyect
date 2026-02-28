@@ -3,182 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoleiGame - Todo sobre el Voleibol</title>
-    <!-- Meta para SEO básico -->
-    <meta name="description" content="Aprende voleibol: reglas, posiciones, historia, estrategias y más. VoleiGame es tu guía completa para este deporte apasionante.">
-    
-    <!-- Favicon e íconos (está perfecto, solo optimizo el orden y agrego type donde faltaba) -->
-    <link rel="icon" href="imagenes/favicons/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="16x16" href="imagenes/favicons/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicons/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="imagenes/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="imagenes/favicons/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="imagenes/favicons/android-chrome-512x512.png">
-    <link rel="manifest" href="imagenes/favicons/site.webmanifest">
+    <title>VoleiGame</title>
+<!-- Favicon y íconos de la página -->
+<link rel="icon" href="imagenes/favicons/favicon.ico" type="image/x-icon">
 
+<!-- Versiones PNG para mejor compatibilidad en navegadores modernos -->
+<link rel="icon" type="image/png" sizes="16x16" href="imagenes/favicons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicons/favicon-32x32.png">
+
+<!-- Para dispositivos Apple (iPhone/iPad - agregar a pantalla de inicio) -->
+<link rel="apple-touch-icon" sizes="180x180" href="imagenes/favicons/apple-touch-icon.png">
+
+<!-- Para Android/Chrome (alta resolución - agregar a pantalla de inicio) -->
+<link rel="icon" type="image/png" sizes="192x192" href="imagenes/favicons/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="imagenes/favicons/android-chrome-512x512.png">
+
+<!-- Manifest para Progressive Web App (PWA) - mejora la experiencia en móviles -->
+<link rel="manifest" href="imagenes/favicons/site.webmanifest">
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 
-<header class="kyamo">
+<div class="kyamo">
     <div class="left">
         <img src="imagenes/Logo.png" alt="Logo VoleiGame" class="logo">
-        <h1 class="brand-name">VoleiGame</h1> <!-- Cambié h2 por h1 porque es el título principal de la página -->
+        <h2 class="brand-name">VoleiGame</h2>
     </div>
 
-    <nav>
-        <ul class="main-menu">
-            <li><a href="index.html">Inicio</a></li>
-            
-            <li class="has-submenu">
-                <span class="parent-title" tabindex="0">Posiciones</span> <!-- tabindex para accesibilidad en foco/móvil -->
-                <ul class="submenu">
-                    <li><a href="Posiciones.html">Posiciones de jugadores</a></li>
-                    <li><a href="Ofensivas.html">Estrategias ofensivas</a></li>
-                    <li><a href="Defensivas.html">Estrategias defensivas</a></li>
-                </ul>
-            </li>
-            
-            <li><a href="Reglas.html">Reglas</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main>
-    <section class="banner">
-        <div class="banner-content">
-            <h1>¿Qué es el voleibol?</h1>
-            <p>El voleibol es un deporte dinámico de equipo donde el objetivo es enviar el balón por encima de la red, buscando que toque el suelo del campo contrario mientras se evita que toque el propio.</p>
-            
-            <a href="https://www.youtube.com/watch?v=tu-enlace" target="_blank" rel="noopener noreferrer" class="btn-video">
-                Ver video explicativo
-            </a>
-        </div>
-    </section>
-
-    <!-- Sección Historia -->
-    <section class="historia-desktop" aria-labelledby="historia-titulo">
-        <div class="historia-wrapper">
-            <div class="historia-header">
-                <h2 id="historia-titulo">La Épica Historia del Voleibol <span class="emoji">🏐</span></h2>
-                <p>De un gimnasio polvoriento en 1895 a un fenómeno global de altura, velocidad y pasión.</p>
-            </div>
-
-            <div class="timeline-horizontal">
-                <!-- Nota: eliminé .timeline-line porque en tu CSS usas ::before para la línea -->
-
-                <div class="timeline-card">
-                    <div class="card-year">1895</div>
-                    <div class="card-icon">🔥</div>
-                    <h3>El Origen</h3>
-                    <p>William G. Morgan, profesor de educación física en la YMCA de Holyoke (Massachusetts, EE.UU.), inventa el “Mintonette” como alternativa menos agresiva al baloncesto.</p>
-                </div>
-
-                <div class="timeline-card">
-                    <div class="card-year">1896</div>
-                    <div class="card-icon">⚡</div>
-                    <h3>Nace el nombre</h3>
-                    <p>En una demostración en Springfield, Alfred Halstead observa el juego y comenta que parece “volley ball” por el constante voleo del balón. El nombre se adopta oficialmente.</p>
-                </div>
-
-                <div class="timeline-card">
-                    <div class="card-year">1916–1947</div>
-                    <div class="card-icon">🌍</div>
-                    <h3>Expansión mundial</h3>
-                    <p>El voleibol llega a Asia, Europa y América Latina. En 1947 se funda la FIVB (Federación Internacional de Voleibol) en París, estandarizando reglas modernas.</p>
-                </div>
-
-                <div class="timeline-card">
-                    <div class="card-year">1964</div>
-                    <div class="card-icon">🏅</div>
-                    <h3>Entrada olímpica</h3>
-                    <p>Debuta como deporte olímpico en Tokio 1964. Desde entonces, ha generado leyendas, rivalidades épicas y millones de seguidores en todo el planeta.</p>
-                </div>
-
-                <div class="timeline-card finale">
-                    <div class="card-year">Hoy</div>
-                    <div class="card-icon">🌟</div>
-                    <h3>Una pasión global</h3>
-                    <p>Más de 800 millones de personas lo practican. Del voleibol de salón al de playa, sigue creciendo con fuerza, velocidad y espíritu de equipo.</p>
-                    <p class="quote">“No es solo un deporte… es una forma de volar.”</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cards de acceso rápido -->
-    <section class="container" aria-labelledby="acceso-rapido">
-        <h2 id="acceso-rapido" class="sr-only">Acceso rápido a contenidos</h2> <!-- sr-only = solo pantalla lectores -->
+    <ul class="main-menu">
+        <li><a href="index.html">Inicio</a></li>
         
-        <div class="card">
-            <div class="card-image bg-posiciones"></div>
-            <div class="card-content">
-                <h3>POSICIONES</h3>
-                <p>Conoce las 6 posiciones clave, sus roles y cómo rotar en la cancha.</p>
-                <a href="Posiciones.html" class="btn-ir">IR</a> <!-- Corregí typo: Posiciónes → Posiciones -->
-            </div>
-        </div>
+        <li class="has-submenu">
+            <span class="parent-title">Posiciones</span>
+            <ul class="submenu">
+                <li><a href="Posiciones.html">Posiciones de jugadores</a></li>
+                <li><a href="Ofensivas.html">Estrategias ofensivas</a></li>
+                <li><a href="Defensivas.html">Estrategias defensivas</a></li>
+            </ul>
+        </li>
+        
+        <li><a href="Reglas.html">Reglas</a></li>
+    </ul>
+</div>
 
-        <div class="card">
-            <div class="card-image bg-reglas"></div>
-            <div class="card-content">
-                <h3>REGLAS</h3>
-                <p>Reglas oficiales, faltas comunes y todo lo que necesitas para ganar.</p>
-                <a href="Reglas.html" class="btn-ir">IR</a>
-            </div>
-        </div>
-    </section>
-</main>
+<div class="banner">
+    <div class="banner-content">
+        <h1>¿Qué es el voleibol?</h1>
+        <p>El voleibol es un deporte dinámico de equipo donde el objetivo es enviar el balón por encima de la red, buscando que toque el suelo del campo contrario mientras se evita que toque el propio.</p>
+        
+        <a href="https://www.youtube.com/watch?v=tu-enlace" target="_blank" class="btn-video">
+            Ver video explicativo
+        </a>
+    </div>
+</div>
+<!-- Sección Historia - Desktop puro HTML + CSS -->
+<section class="historia-desktop">
+  <div class="historia-wrapper">
+    <div class="historia-header">
+      <h2>La Épica Historia del Voleibol <span class="emoji">🏐</span></h2>
+      <p>De un gimnasio polvoriento en 1895 a un fenómeno global de altura, velocidad y pasión.</p>
+    </div>
 
+    <div class="timeline-horizontal">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-card left">
+        <div class="card-year">1895</div>
+        <div class="card-icon">🔥</div>
+        <h3>El Origen</h3>
+        <p>William G. Morgan, profesor de educación física en la YMCA de Holyoke (Massachusetts, EE.UU.), inventa el “Mintonette” como alternativa menos agresiva al baloncesto.</p>
+      </div>
+
+      <div class="timeline-card right">
+        <div class="card-year">1896</div>
+        <div class="card-icon">⚡</div>
+        <h3>Nace el nombre</h3>
+        <p>En una demostración en Springfield, Alfred Halstead observa el juego y comenta que parece “volley ball” por el constante voleo del balón. El nombre se adopta oficialmente.</p>
+      </div>
+
+      <div class="timeline-card left">
+        <div class="card-year">1916–1947</div>
+        <div class="card-icon">🌍</div>
+        <h3>Expansión mundial</h3>
+        <p>El voleibol llega a Asia, Europa y América Latina. En 1947 se funda la FIVB (Federación Internacional de Voleibol) en París, estandarizando reglas modernas.</p>
+      </div>
+
+      <div class="timeline-card right">
+        <div class="card-year">1964</div>
+        <div class="card-icon">🏅</div>
+        <h3>Entrada olímpica</h3>
+        <p>Debuta como deporte olímpico en Tokio 1964. Desde entonces, ha generado leyendas, rivalidades épicas y millones de seguidores en todo el planeta.</p>
+      </div>
+
+      <div class="timeline-card center finale">
+        <div class="card-year">Hoy</div>
+        <div class="card-icon">🌟</div>
+        <h3>Una pasión global</h3>
+        <p>Más de 800 millones de personas lo practican. Del voleibol de salón al de playa, sigue creciendo con fuerza, velocidad y espíritu de equipo.</p>
+        <p class="quote">“No es solo un deporte… es una forma de volar.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="card">
+    <div class="card-image bg-posiciones"></div>
+    <div class="card-content">
+      <h3>POSICIONES</h3>
+      <p>Conoce las 6 posiciones clave, sus roles y cómo rotar en la cancha.</p>
+      <a href="Posiciónes.html" class="btn-ir">IR</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-image bg-reglas"></div>
+    <div class="card-content">
+      <h3>REGLAS</h3>
+      <p>Reglas oficiales, faltas comunes y todo lo que necesitas para ganar.</p>
+      <a href="Reglas.html" class="btn-ir">IR</a>
+    </div>
+  </div>
+</section>
+<section>
 <footer class="site-footer">
-    <div class="footer-wrapper">
-        <!-- Columna izquierda: Logo + Contacto -->
-        <div class="footer-column left">
-            <img src="imagenes/Logo.png" alt="Logo VoleiGame" class="footer-logo">
-            <div class="contact-info">
-                <h4>CONTACTO</h4>
-                <p><span class="icon">📞</span> 669 223 9261</p>
-                <p><span class="icon">✉️</span> contacto@voleigame.com</p>
-            </div>
-        </div>
-
-        <!-- Columna derecha: Redes Sociales -->
-        <div class="footer-column right">
-            <h4>REDES SOCIALES</h4>
-            <div class="social-icons">
-                <a href="https://x.com/JesusAn74769794" target="_blank" rel="noopener noreferrer">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X (Twitter)">
-                </a>
-                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-                </a>
-                <a href="https://tiktok.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
-                </a>
-                <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
-                </a>
-            </div>
-        </div>
+  <div class="footer-wrapper">
+    <!-- Columna izquierda: Logo + Contacto -->
+    <div class="footer-column left">
+      <img src="imagenes/Logo.png" alt="VoleiGame" class="footer-logo">
+      <div class="contact-info">
+        <h4>CONTACTO</h4>
+        <p><span class="icon">📞</span> 669 223 9261</p>
+        <p><span class="icon">✉️</span> contacto@voleigame.com</p>
+      </div>
     </div>
 
-    <div class="footer-bottom">
-        © 2026 VoleiGame. Hecho con pasión por el voleibol 🏐
+    <!-- Columna derecha: Redes Sociales -->
+    <div class="footer-column right">
+      <h4>REDES SOCIALES</h4>
+      <div class="social-icons">
+        <a href="https://x.com/JesusAn74769794" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X">
+        </a>
+        <a href="https://instagram.com/" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://tiktok.com/" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
+        </a>
+        <a href="https://youtube.com/" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+        </a>
+      </div>
     </div>
+  </div>
+
+  <!-- Copyright al final -->
+  <div class="footer-bottom">
+    © 2026 VoleiGame. Hecho con pasión por el voleibol 🏐
+  </div>
 </footer>
-
-<!-- Script opcional para el submenú en móvil (si no lo tienes ya en JS separado) -->
-<script>
-    // Toggle submenú en móvil con clic (para .parent-title)
-    document.querySelectorAll('.parent-title').forEach(title => {
-        title.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                const submenu = this.nextElementSibling;
-                submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
-            }
-        });
-    });
-</script>
-
-</body>
-</html>
