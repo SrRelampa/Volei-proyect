@@ -331,17 +331,11 @@ body {
   transform: translateY(-3px);
 }
 
+/* Historia - Versión compacta y equilibrada para desktop/PC */
 .historia-desktop {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: white;
-  padding: 120px 8% 100px;
-  position: relative;
-}
-/* Sección Historia - Compacta para desktop */
-.historia-desktop {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  color: white;
-  padding: 80px 5% 60px;  /* menos padding arriba/abajo */
+  padding: 60px 5% 50px;  /* mucho menos espacio arriba/abajo */
   position: relative;
 }
 
@@ -350,103 +344,106 @@ body {
   position: absolute;
   inset: 0;
   background: url("imagenes/siluetas-volei.png") center/cover no-repeat;
-  opacity: 0.06;  /* más sutil */
+  opacity: 0.05;  /* muy sutil para no distraer */
 }
 
 .historia-wrapper {
-  max-width: 1300px;  /* no tan ancho */
+  max-width: 1200px;  /* no tan ancho para que no se estire */
   margin: 0 auto;
 }
 
 .historia-header {
   text-align: center;
-  margin-bottom: 50px;  /* menos espacio abajo */
+  margin-bottom: 40px;  /* menos espacio */
 }
 
 .historia-header h2 {
-  font-size: 3.2rem;  /* más pequeño que 4.5rem */
+  font-size: 2.8rem;  /* título más pequeño y elegante */
   font-weight: 900;
-  margin-bottom: 12px;
+  margin: 0 0 10px;
   background: linear-gradient(90deg, #f97316, #fbbf24);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: 1px;
 }
 
 .historia-header p {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   color: #94a3b8;
-  max-width: 700px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
+/* Timeline horizontal compacta */
 .timeline-horizontal {
-  position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;  /* alineación arriba para no estirar */
-  gap: 30px;  /* gap más pequeño */
-  padding: 50px 0;  /* menos altura */
+  align-items: flex-start;
+  gap: 20px;  /* gap reducido para que quepan sin estirarse */
+  position: relative;
+  padding: 40px 0 20px;
 }
 
-.timeline-line {
+.timeline-horizontal::before {  /* línea horizontal delgada */
+  content: "";
   position: absolute;
   top: 50%;
   left: 0;
   right: 0;
-  height: 5px;  /* línea más delgada */
+  height: 4px;  /* más delgada */
   background: linear-gradient(to right, #f97316, #ea580c);
+  transform: translateY(-50%);
   z-index: 0;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
+/* Tarjetas mucho más compactas */
 .timeline-card {
   flex: 1;
   background: rgba(30, 41, 59, 0.75);
   backdrop-filter: blur(8px);
-  border-radius: 16px;
-  padding: 30px 20px 25px;  /* menos padding interno */
-  border: 1px solid rgba(249, 115, 22, 0.25);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border-radius: 14px;
+  padding: 20px 15px 18px;  /* padding interno reducido */
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   text-align: center;
   position: relative;
-  transition: all 0.4s ease;
-  max-width: 280px;  /* tarjetas más angostas */
+  transition: all 0.3s ease;
+  max-width: 240px;  /* tarjetas angostas para caber bien */
 }
 
 .timeline-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 50px rgba(249, 115, 22, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(249, 115, 22, 0.18);
 }
 
 .card-year {
   position: absolute;
-  top: -18px;
+  top: -16px;
   left: 50%;
   transform: translateX(-50%);
   background: #f97316;
   color: white;
-  padding: 6px 14px;
-  border-radius: 30px;
-  font-size: 1.1rem;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 1rem;
   font-weight: bold;
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 3px 10px rgba(249, 115, 22, 0.4);
 }
 
 .card-icon {
-  font-size: 3.2rem;  /* iconos más pequeños */
-  margin-bottom: 12px;
+  font-size: 2.8rem;  /* iconos más pequeños */
+  margin-bottom: 10px;
 }
 
 .timeline-card h3 {
-  font-size: 1.5rem;  /* títulos más compactos */
-  margin-bottom: 10px;
+  font-size: 1.3rem;  /* títulos compactos */
+  margin: 0 0 8px;
   color: #fed7aa;
 }
 
 .timeline-card p {
-  font-size: 0.95rem;  /* texto más pequeño pero legible */
-  line-height: 1.5;
+  font-size: 0.9rem;  /* texto más pequeño pero legible */
+  line-height: 1.45;
   color: #cbd5e1;
   margin: 0;
 }
@@ -454,13 +451,16 @@ body {
 .finale {
   background: linear-gradient(135deg, #f97316, #ea580c);
   border: none;
-  transform: scale(1.05);  /* solo un poco más grande */
-  max-width: 320px;
+  transform: scale(1.04);  /* solo un toque más grande */
+  max-width: 260px;
 }
 
-.quote {
-  font-style: italic;
-  font-size: 1.1rem;
-  margin-top: 12px;
-  color: #fff7ed;
+/* Para pantallas muy grandes (opcional, mantiene proporciones) */
+@media (min-width: 1400px) {
+  .timeline-horizontal {
+    gap: 30px;
+  }
+  .timeline-card {
+    max-width: 280px;
+  }
 }
