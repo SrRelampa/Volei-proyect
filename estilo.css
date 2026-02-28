@@ -188,7 +188,7 @@ section {
     display: flex; 
     align-items: stretch;
     /* Usamos tu patrón naranja de fondo para TODA la card */
-    background-image: url('imagenes/Diseño sin título.png'); 
+    background-image: url('imagenes/fondo-cards1.png'); 
     background-size: cover;
     background-position: center;
     border-radius: 20px;
