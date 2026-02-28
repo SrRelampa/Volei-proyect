@@ -232,7 +232,7 @@ body {
 }
 
 .card {
-  background-image: url("imagenes/tu-fondo-general.jpg");  /* ← tu imagen de fondo actual, la que ya funciona */
+  background-image: url("imagenes/fondo-cards1.png");  /* ← tu imagen de fondo actual, la que ya funciona */
   background-size: cover;
   background-position: center;
   border-radius: 20px;
