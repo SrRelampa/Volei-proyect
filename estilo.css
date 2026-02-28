@@ -1,4 +1,8 @@
-/* ── RESET Y BASES ── */
+
+@media (max-width: 768px) {
+    /* estilos base para móvil */
+}
+
 * {
     box-sizing: border-box;
 }
@@ -7,10 +11,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, sans-serif;
-    background-color: #f3f0ee;
 }
 
-/* ── NAVEGACIÓN (KYAMO) ── */
 .kyamo {
     background-color: #35364a;
     width: 100%;
@@ -18,7 +20,6 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px 40px;
-    border-bottom: 4px solid #ef863d;
 }
 
 .logo {
@@ -42,6 +43,7 @@ body {
     font-style: italic;
 }
 
+/* ── MENÚ PRINCIPAL ── */
 .kyamo > ul {
     display: flex;
     list-style: none;
@@ -55,12 +57,14 @@ body {
     position: relative;
 }
 
+/* Enlaces normales (Inicio, Reglas, etc.) */
 .kyamo > ul > li > a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
+/* ── TÍTULO "Posiciones" (padre del submenú) ── */
 .parent-title {
     color: white !important;
     font-weight: bold;
@@ -70,10 +74,12 @@ body {
     transition: color 0.2s ease;
 }
 
-.parent-title:hover {
+.parent-title:hover,
+.parent-title:focus {
     color: #ffcc00 !important;
 }
 
+/* Flecha indicadora */
 .parent-title::after {
     content: " ▼";
     font-size: 0.8em;
@@ -81,6 +87,7 @@ body {
     opacity: 0.8;
 }
 
+/* ── SUBMENÚ ── */
 .submenu {
     display: none;
     position: absolute;
@@ -96,8 +103,12 @@ body {
     z-index: 10;
 }
 
-.has-submenu:hover .submenu {
-    display: block;
+.submenu li {
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.submenu li:last-child {
+    border-bottom: none;
 }
 
 .submenu a {
@@ -111,9 +122,15 @@ body {
 .submenu a:hover {
     background-color: #ffcc00;
     color: #35364a;
+    padding-left: 28px;
 }
 
-/* ── BANNER ── */
+/* Mostrar en escritorio */
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+/* Banner */
 .banner {
     background-image: url("imagenes/banner.png");
     background-size: cover;
@@ -135,6 +152,7 @@ body {
     color: white;
 }
 
+/* Botón video */
 .btn-video {
     display: inline-block;
     background-color: #ffcc00;
@@ -146,139 +164,10 @@ body {
     transition: background 0.3s, transform 0.2s;
 }
 
-/* ── SECCIONES Y CARDS ── */
-section {
-    padding: 60px 40px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2em;
-    color: #35364a;
-    margin-bottom: 40px;
-}
-
-.cards-container {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-}
-
-.card {
-    display: flex; 
-    align-items: stretch;
-    /* PATRÓN NARANJA DE FONDO TOTAL */
-    background-image: Orange !important; 
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-    width: 100%;
-    max-width: 550px;
-    border: none;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-.card-content {
-    width: 60%; 
-    padding: 30px;
-    text-align: left; 
-    order: 1; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Fondo semi-blanco para que el texto resalte */
-    background-color: rgba(255, 255, 255, 0.9); 
-}
-
-.card-image {
-    width: 40%; 
-    order: 2; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    /* Quitamos el background repetido de aquí para que la imagen del HTML luzca limpia */
-}
-
-.card-image img {
-    max-width: 100%;
-    height: auto;
-    filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3));
-}
-
-.card h3 {
-    color: #35364a;
-    font-size: 1.6em;
-    margin: 0 0 10px 0;
-    text-transform: uppercase;
-}
-
-.btn-ir {
-    align-self: flex-start;
-    background-color: #35364a;
-    color: #ffcc00;
-    padding: 10px 35px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.btn-ir:hover {
-    background-color: #ef863d;
-    color: white;
-}
-
-/* ── HISTORIA Y FOOTER ── */
-.history {
-    background-color: #f9f9f9;
-    text-align: center;
-    border-radius: 20px;
-    padding: 40px;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.feature-item {
-    background: #35364a;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.main-footer {
-    background: #2c2d3f;
-    color: white;
-    padding: 40px 20px 20px;
-    margin-top: 50px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 20px;
-}
-
-.copyright {
-    text-align: center;
-    font-size: 0.9em;
-    margin-top: 20px;
-    opacity: 0.7;
+.btn-video:hover {
+    background-color: #ffffff;
+    color: #000;
+    transform: translateY(-2px);
 }
 
 /* ── RESPONSIVE MÓVIL ── */
@@ -296,19 +185,26 @@ section {
         text-align: center;
     }
 
+    /* Título "Posiciones" en móvil */
     .parent-title {
         display: block;
         width: 100%;
         padding: 18px 0;
+        font-size: 1.15em;
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
+    /* Submenú en móvil */
     .submenu {
         position: static;
         width: 100%;
+        box-shadow: none;
+        border-radius: 0;
         background-color: #2c2d3f;
+        padding: 0 0 12px 0;
     }
 
+    /* Control de apertura/cierre en móvil */
     .has-submenu .submenu {
         display: none;
     }
@@ -318,16 +214,9 @@ section {
         display: block !important;
     }
 
-    .cards-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        flex-direction: column;
-    }
-    
-    .card-content, .card-image {
-        width: 100%;
+    /* Enlaces dentro del submenú más fáciles de tocar */
+    .submenu a {
+        padding: 18px 40px;
+        font-size: 1.05em;
     }
 }
