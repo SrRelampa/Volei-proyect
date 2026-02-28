@@ -232,96 +232,98 @@ body {
 }
 
 .card {
-  background-image: url("imagenes/fondo-general-volei.jpg");  /* ← TU imagen de fondo general (la misma o diferente por tarjeta) */
+  background-image: url("imagenes/tu-fondo-general.jpg");  /* ← tu imagen de fondo actual, la que ya funciona */
   background-size: cover;
   background-position: center;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
   max-width: 480px;
   width: 100%;
-  height: 240px;                      /* un poco más alta para que quepa todo cómodo */
+  height: 240px;                      /* ajusta si necesitas más espacio */
   display: flex;
+  align-items: stretch;
   position: relative;
-  border: 3px solid #6b7280;          /* borde gris más grueso y visible (gray-500) */
-  transition: all 0.3s ease;
+  border: 3px solid #6b7280;          /* borde gris resaltante */
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
-  border-color: #4b5563;              /* gris más oscuro al hover */
+  box-shadow: 0 20px 45px rgba(0,0,0,0.18);
 }
 
-/* Overlay oscuro para que el texto se lea bien sobre el fondo */
-.card::after {
+/* Overlay oscuro general para legibilidad del texto */
+.card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.40);    /* ajusta 0.35–0.55 según cuán oscura sea tu imagen de fondo */
+  background: rgba(0, 0, 0, 0.45);    /* velo negro – baja a 0.3 si quieres ver más el fondo */
   z-index: 1;
-  border-radius: 17px;                /* un poco menos que el card para que no se vea raro */
 }
 
-/* Contenedor de la imagen lateral (al lado izquierdo) */
-.card-image-side {
-  width: 35%;                         /* ajusta 30–40% según prefieras */
+/* Imagen lateral (al lado izquierdo, junto al contenido) */
+.card-image {
+  width: 35%;                         /* 30-40% para que no robe mucho espacio al texto */
   height: 100%;
+  background-size: contain;           /* contain para que no se recorte el diagrama */
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 2;                         /* encima del overlay */
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  z-index: 2;                         /* encima del overlay */
   padding: 15px;
+  background-color: rgba(255, 255, 255, 0.15);  /* fondo sutil blanco para destacar */
+  border-right: 1px solid rgba(255, 255, 255, 0.3);  /* separación sutil del texto */
 }
 
-.card-image-side img {
-  width: 100%;
-  height: auto;
-  max-height: 80%;                    /* no ocupa toda la altura para que se vea bien */
-  object-fit: contain;                /* mantiene proporciones, ideal para diagramas o iconos */
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);  /* sombra para que "salte" */
-  background: rgba(255,255,255,0.15);     /* fondo sutil blanco semi-transparente */
+.bg-posiciones {
+  background-image: url("imagenes/posiciones-diagrama.jpg");  /* ruta a tu imagen de posiciones */
 }
 
-/* Contenido de texto (lado derecho, empujado) */
+.bg-reglas {
+  background-image: url("imagenes/reglas-cancha.jpg");        /* ruta a tu imagen de reglas */
+}
+
+/* Contenido de texto (empujado a la derecha) */
 .card-content {
   width: 65%;
-  padding: 24px 28px 24px 12px;       /* menos padding izquierdo para que se acerque a la imagen */
+  padding: 24px 28px 24px 16px;       /* menos padding izquierdo para acercar al borde de la imagen */
+  position: relative;
+  z-index: 2;                         /* encima del overlay */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
-  z-index: 2;                         /* encima del overlay */
   color: white;
 }
 
 .card-content h3 {
   margin: 0 0 12px 0;
   font-size: 1.45rem;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
 }
 
 .card-content p {
   font-size: 14.5px;
   margin: 0 0 18px 0;
   line-height: 1.5;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
 }
 
-/* Botón (destaca más) */
+/* Botón */
 .btn-ir {
-  background-color: #2d3447e0;        /* un poco transparente para integrarse */
-  backdrop-filter: blur(4px);
+  background-color: #2d3447e6;
+  backdrop-filter: blur(6px);
   color: white;
   padding: 10px 28px;
   border-radius: 999px;
   font-weight: 600;
   font-size: 15px;
   border: 1px solid #4a5568;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
   transition: all 0.3s;
+  width: fit-content;
 }
 
 .btn-ir:hover {
