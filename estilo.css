@@ -279,11 +279,11 @@ body {
 }
 
 .bg-posiciones {
-  background-image: url("imagenes/posiciones-diagrama.jpg");  /* ruta a tu imagen de posiciones */
+  background-image: url("imagenes/Po.png");  /* ruta a tu imagen de posiciones */
 }
 
 .bg-reglas {
-  background-image: url("imagenes/reglas-cancha.jpg");        /* ruta a tu imagen de reglas */
+  background-image: url("imagenes/Re.jpeg");        /* ruta a tu imagen de reglas */
 }
 
 /* Contenido de texto (empujado a la derecha) */
