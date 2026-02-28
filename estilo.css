@@ -231,96 +231,100 @@ body {
   font-family: sans-serif;
 }
 
-/* Contenedor para poner las tarjetas de lado */
-.container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  padding: 40px;
-  background-color: #f9f9f9;
-  font-family: sans-serif;
-  flex-wrap: wrap;          /* ← añadido: evita que se desborden en pantallas pequeñas */
-}
-
-/* La tarjeta completa */
 .card {
-  background-image: url("imagenes/fondo-cards1.png");   /* ← cambia por TU imagen real */
-  background-size: cover;             /* cubre todo el espacio sin deformar */
-  background-position: center;        /* centra la imagen */
-  background-repeat: no-repeat;       /* no se repite */
-  
+  background-image: url("imagenes/fondo-general-volei.jpg");  /* ← TU imagen de fondo general (la misma o diferente por tarjeta) */
+  background-size: cover;
+  background-position: center;
   border-radius: 20px;
-  display: flex;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  max-width: 450px;
-  height: 220px;                      /* ajusta según prefieras (más alto = más espacio para texto) */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  max-width: 480px;
   width: 100%;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  position: relative;                 /* importante para posicionar el contenido encima */
+  height: 240px;                      /* un poco más alta para que quepa todo cómodo */
+  display: flex;
+  position: relative;
+  border: 3px solid #6b7280;          /* borde gris más grueso y visible (gray-500) */
+  transition: all 0.3s ease;
 }
 
-/* Efecto hover (queda muy bien con imagen de fondo) */
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+  border-color: #4b5563;              /* gris más oscuro al hover */
 }
 
-/* Oscurece un poco la imagen para que el texto se lea mejor */
+/* Overlay oscuro para que el texto se lea bien sobre el fondo */
 .card::after {
   content: "";
   position: absolute;
-  inset: 0;                           /* cubre todo el .card */
-  background: rgba(0, 0, 0, 0.35);    /* negro semi-transparente → ajusta 0.25 a 0.50 según la imagen */
-  border-radius: 20px;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.40);    /* ajusta 0.35–0.55 según cuán oscura sea tu imagen de fondo */
   z-index: 1;
+  border-radius: 17px;                /* un poco menos que el card para que no se vea raro */
 }
 
-/* Contenedor del texto (encima de la imagen y del overlay) */
+/* Contenedor de la imagen lateral (al lado izquierdo) */
+.card-image-side {
+  width: 35%;                         /* ajusta 30–40% según prefieras */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;                         /* encima del overlay */
+  padding: 15px;
+}
+
+.card-image-side img {
+  width: 100%;
+  height: auto;
+  max-height: 80%;                    /* no ocupa toda la altura para que se vea bien */
+  object-fit: contain;                /* mantiene proporciones, ideal para diagramas o iconos */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);  /* sombra para que "salte" */
+  background: rgba(255,255,255,0.15);     /* fondo sutil blanco semi-transparente */
+}
+
+/* Contenido de texto (lado derecho, empujado) */
 .card-content {
-  width: 100%;                        /* ocupa todo el ancho ahora */
-  padding: 24px;
+  width: 65%;
+  padding: 24px 28px 24px 12px;       /* menos padding izquierdo para que se acerque a la imagen */
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  z-index: 2;                         /* siempre encima del overlay */
-  color: white;                       /* texto blanco para contraste */
+  z-index: 2;                         /* encima del overlay */
+  color: white;
 }
 
 .card-content h3 {
   margin: 0 0 12px 0;
-  color: white;
-  letter-spacing: 0.8px;
   font-size: 1.45rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);   /* sombra sutil para legibilidad */
+  text-shadow: 0 2px 5px rgba(0,0,0,0.7);
 }
 
 .card-content p {
-  font-size: 15px;
-  color: #f0f0f0;
-  margin: 0 0 20px 0;
+  font-size: 14.5px;
+  margin: 0 0 18px 0;
   line-height: 1.5;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }
 
-/* Botón (ajustado para que destaque sobre imagen oscura) */
+/* Botón (destaca más) */
 .btn-ir {
-  background-color: #2d3447;
+  background-color: #2d3447e0;        /* un poco transparente para integrarse */
+  backdrop-filter: blur(4px);
   color: white;
-  text-decoration: none;
   padding: 10px 28px;
   border-radius: 999px;
-  width: fit-content;
   font-weight: 600;
   font-size: 15px;
-  transition: all 0.3s ease;
   border: 1px solid #4a5568;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  transition: all 0.3s;
 }
 
 .btn-ir:hover {
-  background-color: #1a1e29;
+  background-color: #1f2937;
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
