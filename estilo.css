@@ -170,7 +170,7 @@ section {
     display: flex; 
     align-items: stretch;
     /* PATRÓN NARANJA DE FONDO TOTAL */
-    background-image: url('imagenes/fondo-cards1.png'); 
+    background-image: Orange !important; 
     background-size: cover;
     background-position: center;
     border-radius: 20px;
