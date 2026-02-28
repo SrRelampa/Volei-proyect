@@ -479,3 +479,67 @@ body {
     max-width: 280px;
   }
 }
+
+.site-footer {
+  background: #0f172a; /* mismo azul oscuro que el resto para continuidad */
+  color: #94a3b8;
+  padding: 60px 5% 40px;
+  text-align: center;
+  border-top: 1px solid rgba(249, 115, 22, 0.15); /* línea sutil naranja */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  margin-bottom: 30px;
+}
+
+.logo-img {
+  width: 80px; /* ajusta según el tamaño de tu logo */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footer-logo span {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f97316; /* naranja para destacar */
+  letter-spacing: 1px;
+}
+
+.footer-social {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+  filter: brightness(0.8); /* para que se vean bien en fondo oscuro */
+}
+
+.social-icon:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.2);
+}
+
+.footer-copyright {
+  font-size: 0.95rem;
+  margin-top: 20px;
+}
+
+.footer-copyright p {
+  margin: 5px 0;
+  color: #64748b;
+}
+
+.footer-copyright p:last-child {
+  color: #f97316;
+  font-weight: 500;
+}
