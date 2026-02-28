@@ -207,7 +207,7 @@ section {
     width: 40%; /* La imagen ocupa el lado derecho */
     height: 100%;
     min-height: 250px;
-    background-image: url('tu-patron-de-iconos.png'); /* Aquí puedes usar el patrón naranja */
+    background-image: url('imagenes/fondo-cards1.png'); /* Aquí puedes usar el patrón naranja */
     background-size: cover;
     order: 2; /* Mueve la imagen a la derecha */
 }
