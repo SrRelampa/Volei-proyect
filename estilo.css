@@ -1,7 +1,6 @@
-
-@media (max-width: 768px) {
-    /* estilos base para móvil */
-}
+/* ────────────────────────────────────────────────
+   RESET / BASE
+───────────────────────────────────────────────── */
 
 * {
     box-sizing: border-box;
@@ -13,6 +12,10 @@ body {
     font-family: system-ui, -apple-system, sans-serif;
 }
 
+/* ────────────────────────────────────────────────
+   HEADER / NAVBAR
+───────────────────────────────────────────────── */
+
 .kyamo {
     background-color: #35364a;
     width: 100%;
@@ -22,15 +25,15 @@ body {
     padding: 10px 40px;
 }
 
-.logo {
-    width: 150px;
-    display: block;
-}
-
 .left {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.logo {
+    width: 150px;
+    display: block;
 }
 
 .brand-name {
@@ -57,14 +60,13 @@ body {
     position: relative;
 }
 
-/* Enlaces normales (Inicio, Reglas, etc.) */
 .kyamo > ul > li > a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* ── TÍTULO "Posiciones" (padre del submenú) ── */
+/* Título "Posiciones" (padre del submenú) */
 .parent-title {
     color: white !important;
     font-weight: bold;
@@ -79,7 +81,6 @@ body {
     color: #ffcc00 !important;
 }
 
-/* Flecha indicadora */
 .parent-title::after {
     content: " ▼";
     font-size: 0.8em;
@@ -125,12 +126,14 @@ body {
     padding-left: 28px;
 }
 
-/* Mostrar en escritorio */
 .has-submenu:hover .submenu {
     display: block;
 }
 
-/* Banner */
+/* ────────────────────────────────────────────────
+   BANNER
+───────────────────────────────────────────────── */
+
 .banner {
     background-image: url("imagenes/banner.png");
     background-size: cover;
@@ -170,8 +173,350 @@ body {
     transform: translateY(-2px);
 }
 
-/* ── RESPONSIVE MÓVIL ── */
+/* ────────────────────────────────────────────────
+   CARDS (Posiciones / Reglas)
+───────────────────────────────────────────────── */
+
+.container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+    font-family: sans-serif;
+}
+
+.card {
+    background-image: url("imagenes/fondo-cards1.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    max-width: 480px;
+    width: 100%;
+    height: 240px;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    border: 3px solid #6b7280;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.card-image {
+    width: 35%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bg-posiciones {
+    background-image: url("imagenes/Po.png");
+}
+
+.bg-reglas {
+    background-image: url("imagenes/Re.jpeg");
+}
+
+.card-content {
+    width: 65%;
+    padding: 24px 28px 24px 16px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.card-content h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.45rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+}
+
+.card-content p {
+    font-size: 14.5px;
+    margin: 0 0 18px 0;
+    line-height: 1.5;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+}
+
+.btn-ir {
+    background-color: #2d3447e6;
+    backdrop-filter: blur(6px);
+    color: white;
+    padding: 10px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    border: 1px solid #4a5568;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    transition: all 0.3s;
+    width: fit-content;
+}
+
+.btn-ir:hover {
+    background-color: #1f2937;
+    transform: translateY(-3px);
+}
+
+/* ────────────────────────────────────────────────
+   SECCIÓN HISTORIA (desktop)
+───────────────────────────────────────────────── */
+
+.historia-desktop {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    padding: 60px 5% 50px;
+    position: relative;
+}
+
+.historia-desktop::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("imagenes/siluetas-volei.png") center/cover no-repeat;
+    opacity: 0.05;
+}
+
+.historia-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.historia-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.historia-header h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin: 0 0 10px;
+    background: linear-gradient(90deg, #f97316, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.historia-header p {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.timeline-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    padding: 40px 0 20px;
+}
+
+.timeline-horizontal::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #f97316, #ea580c);
+    transform: translateY(-50%);
+    z-index: 0;
+    border-radius: 2px;
+}
+
+.timeline-card {
+    flex: 1;
+    background: rgba(30, 41, 59, 0.75);
+    backdrop-filter: blur(8px);
+    border-radius: 14px;
+    padding: 20px 18px 18px;
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    max-width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(249, 115, 22, 0.18);
+}
+
+.card-icon {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.timeline-card h3 {
+    font-size: 1.3rem;
+    margin: 0 0 8px 0;
+    color: #fed7aa;
+    text-align: center;
+    width: 100%;
+}
+
+.timeline-card p {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: #cbd5e1;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    padding: 0 4px;
+    box-sizing: border-box;
+}
+
+.card-year {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f97316;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(249, 115, 22, 0.4);
+    white-space: nowrap;
+}
+
+.finale {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    border: none;
+    transform: scale(1.04);
+    max-width: 260px;
+}
+
+/* ────────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────────── */
+
+.site-footer {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 50px 5% 30px;
+    font-family: sans-serif;
+}
+
+.footer-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: center;
+}
+
+.footer-logo {
+    width: 90px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    font-size: 0.95rem;
+}
+
+.contact-info a {
+    color: #94a3b8;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #f97316;
+}
+
+.icon {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 32px;
+    height: 32px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.15);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #334155;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* ────────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────────── */
+
 @media (max-width: 768px) {
+    /* Header / Navbar */
     .kyamo {
         flex-direction: column;
         padding: 15px 20px;
@@ -185,7 +530,6 @@ body {
         text-align: center;
     }
 
-    /* Título "Posiciones" en móvil */
     .parent-title {
         display: block;
         width: 100%;
@@ -194,7 +538,6 @@ body {
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* Submenú en móvil */
     .submenu {
         position: static;
         width: 100%;
@@ -204,7 +547,6 @@ body {
         padding: 0 0 12px 0;
     }
 
-    /* Control de apertura/cierre en móvil */
     .has-submenu .submenu {
         display: none;
     }
@@ -214,364 +556,23 @@ body {
         display: block !important;
     }
 
-    /* Enlaces dentro del submenú más fáciles de tocar */
     .submenu a {
         padding: 18px 40px;
         font-size: 1.05em;
     }
+
+    /* Footer */
+    .footer-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
-/* Contenedor para poner las tarjetas de lado */
-.container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  padding: 40px;
-  background-color: #f9f9f9;
-  font-family: sans-serif;
-}
-
-.card {
-  background-image: url("imagenes/fondo-cards1.png");  /* ← tu imagen de fondo actual, la que ya funciona */
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-  max-width: 480px;
-  width: 100%;
-  height: 240px;                      /* ajusta si necesitas más espacio */
-  display: flex;
-  align-items: stretch;
-  position: relative;
-  border: 3px solid #6b7280;          /* borde gris resaltante */
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.18);
-}
-
-/* Overlay oscuro general para legibilidad del texto */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);    /* velo negro – baja a 0.3 si quieres ver más el fondo */
-  z-index: 1;
-}
-
-/* Imagen lateral (al lado izquierdo, junto al contenido) */
-.card-image {
-  width: 35%;                         /* 30-40% para que no robe mucho espacio al texto */
-  height: 100%;
-  background-size: contain;           /* contain para que no se recorte el diagrama */
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  z-index: 2;                         /* encima del overlay */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.15);  /* fondo sutil blanco para destacar */
-  border-right: 1px solid rgba(255, 255, 255, 0.3);  /* separación sutil del texto */
-}
-
-.bg-posiciones {
-  background-image: url("imagenes/Po.png");  /* ruta a tu imagen de posiciones */
-}
-
-.bg-reglas {
-  background-image: url("imagenes/Re.jpeg");        /* ruta a tu imagen de reglas */
-}
-
-/* Contenido de texto (empujado a la derecha) */
-.card-content {
-  width: 65%;
-  padding: 24px 28px 24px 16px;       /* menos padding izquierdo para acercar al borde de la imagen */
-  position: relative;
-  z-index: 2;                         /* encima del overlay */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: white;
-}
-
-.card-content h3 {
-  margin: 0 0 12px 0;
-  font-size: 1.45rem;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
-}
-
-.card-content p {
-  font-size: 14.5px;
-  margin: 0 0 18px 0;
-  line-height: 1.5;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
-}
-
-/* Botón */
-.btn-ir {
-  background-color: #2d3447e6;
-  backdrop-filter: blur(6px);
-  color: white;
-  padding: 10px 28px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 15px;
-  border: 1px solid #4a5568;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
-  transition: all 0.3s;
-  width: fit-content;
-}
-
-.btn-ir:hover {
-  background-color: #1f2937;
-  transform: translateY(-3px);
-}
-
-/* Historia - Versión compacta y equilibrada para desktop/PC */
-.historia-desktop {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  color: white;
-  padding: 60px 5% 50px;  /* mucho menos espacio arriba/abajo */
-  position: relative;
-}
-
-.historia-desktop::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("imagenes/siluetas-volei.png") center/cover no-repeat;
-  opacity: 0.05;  /* muy sutil para no distraer */
-}
-
-.historia-wrapper {
-  max-width: 1200px;  /* no tan ancho para que no se estire */
-  margin: 0 auto;
-}
-
-.historia-header {
-  text-align: center;
-  margin-bottom: 40px;  /* menos espacio */
-}
-
-.historia-header h2 {
-  font-size: 2.8rem;  /* título más pequeño y elegante */
-  font-weight: 900;
-  margin: 0 0 10px;
-  background: linear-gradient(90deg, #f97316, #fbbf24);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.historia-header p {
-  font-size: 1.15rem;
-  color: #94a3b8;
-  max-width: 650px;
-  margin: 0 auto;
-}
-
-/* Timeline horizontal compacta */
-.timeline-horizontal {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;  /* gap reducido para que quepan sin estirarse */
-  position: relative;
-  padding: 40px 0 20px;
-}
-
-.timeline-horizontal::before {  /* línea horizontal delgada */
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 4px;  /* más delgada */
-  background: linear-gradient(to right, #f97316, #ea580c);
-  transform: translateY(-50%);
-  z-index: 0;
-  border-radius: 2px;
-}
-
-/* Tarjetas de la timeline - Aseguramos centrado perfecto en todas */
-.timeline-card {
-  flex: 1;
-  background: rgba(30, 41, 59, 0.75);
-  backdrop-filter: blur(8px);
-  border-radius: 14px;
-  padding: 20px 18px 18px;          /* padding simétrico y reducido */
-  border: 1px solid rgba(249, 115, 22, 0.2);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  text-align: center;               /* centrado general */
-  position: relative;
-  transition: all 0.3s ease;
-  max-width: 240px;
-  display: flex;                    /* nuevo: flex para controlar interno */
-  flex-direction: column;
-  align-items: center;              /* todo centrado horizontalmente */
-  justify-content: center;          /* vertical si hay espacio */
-}
-
-.timeline-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(249, 115, 22, 0.18);
-}
-
-/* Icono centrado */
-.card-icon {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-/* Título centrado */
-.timeline-card h3 {
-  font-size: 1.3rem;
-  margin: 0 0 8px 0;
-  color: #fed7aa;
-  text-align: center;
-  width: 100%;                      /* fuerza ancho completo para centrar bien textos largos */
-}
-
-/* Texto descriptivo: centrado y con ajuste automático */
-.timeline-card p {
-  font-size: 0.9rem;
-  line-height: 1.45;
-  color: #cbd5e1;
-  margin: 0;
-  text-align: center;
-  width: 100%;
-  padding: 0 4px;                   /* pequeño padding interno para que no toque los bordes */
-  box-sizing: border-box;
-}
-
-/* Año arriba, siempre centrado */
-.card-year {
-  position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #f97316;
-  color: white;
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  box-shadow: 0 3px 10px rgba(249, 115, 22, 0.4);
-  white-space: nowrap;
-}
-.finale {
-  background: linear-gradient(135deg, #f97316, #ea580c);
-  border: none;
-  transform: scale(1.04);  /* solo un toque más grande */
-  max-width: 260px;
-}
-
-/* Para pantallas muy grandes (opcional, mantiene proporciones) */
 @media (min-width: 1400px) {
-  .timeline-horizontal {
-    gap: 30px;
-  }
-  .timeline-card {
-    max-width: 280px;
-  }
-}
-
-.site-footer {
-  background: #0f172a;
-  color: #94a3b8;
-  padding: 50px 5% 30px;
-  font-family: sans-serif;
-}
-
-.footer-wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-.footer-column {
-  flex: 1;
-  min-width: 250px;
-}
-
-.left {
-  text-align: left;
-}
-
-.right {
-  text-align: center;
-}
-
-.footer-logo {
-  width: 90px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-h4 {
-  color: white;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-}
-
-.contact-info p {
-  margin: 10px 0;
-  font-size: 0.95rem;
-}
-
-.contact-info a {
-  color: #94a3b8;
-  text-decoration: none;
-}
-
-.contact-info a:hover {
-  color: #f97316;
-}
-
-.icon {
-  margin-right: 8px;
-  font-size: 1.1rem;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 10px;
-}
-
-.social-icons img {
-  width: 32px;
-  height: 32px;
-  filter: brightness(0) invert(1); /* iconos blancos */
-  transition: transform 0.3s;
-}
-
-.social-icons img:hover {
-  transform: scale(1.15);
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid #334155;
-  font-size: 0.9rem;
-  color: #64748b;
-}
-
-/* En móvil se apila todo verticalmente */
-@media (max-width: 768px) {
-  .footer-wrapper {
-    flex-direction: column;
-    text-align: center;
-  }
+    .timeline-horizontal {
+        gap: 30px;
+    }
+    .timeline-card {
+        max-width: 280px;
+    }
 }
