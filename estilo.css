@@ -231,19 +231,37 @@ body {
   font-family: sans-serif;
 }
 
-/* La tarjeta blanca */
-.card {
-  background-image: url("imagenes/fondo-cards1.png")
-  background-size: cover;
-  background-position: center
-  border-radius: 20px; /* Esquinas muy redondeadas */
-  display: flex; /* Para poner imagen a la izquierda y texto a la derecha */
-  overflow: hidden; /* Para que la imagen respete los bordes redondeados */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra suave */
-  max-width: 450px;
-  height: 200px;
+/* Contenedor para poner las tarjetas de lado */
+.container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 40px;
+  background-color: #f9f9f9;
+  font-family: sans-serif;
+  flex-wrap: wrap;          /* ← añadido: evita que se desborden en pantallas pequeñas */
 }
 
+/* La tarjeta blanca */
+.card {
+  background-image: url("imagenes/fondo-cards1.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;           /* Esquinas muy redondeadas */
+  display: flex;                 /* imagen a la izquierda + texto a la derecha */
+  overflow: hidden;              /* respeta bordes redondeados en la imagen */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* sombra suave */
+  max-width: 450px;
+  height: 200px;
+  width: 100%;                   /* ← añadido: mejor comportamiento responsive */
+  transition: transform 0.25s ease, box-shadow 0.25s ease; /* ← bonus: efecto al hover */
+}
+
+/* Efecto hover en la tarjeta (opcional pero recomendado) */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
 
 /* Contenedor del texto */
 .card-content {
@@ -252,18 +270,22 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: rgba(255, 255, 255, 0.88); /* ← semi-transparente para legibilidad */
+  backdrop-filter: blur(4px);            /* ← efecto vidrio esmerilado (moderno) */
 }
 
 .card-content h3 {
-  margin: 0;
-  color: #333;
-  letter-spacing: 1px;
+  margin: 0 0 8px 0;
+  color: #222;
+  letter-spacing: 0.8px;
+  font-size: 1.35rem;
 }
 
 .card-content p {
   font-size: 14px;
-  color: #666;
-  margin: 10px 0;
+  color: #555;
+  margin: 0 0 16px 0;
+  line-height: 1.45;
 }
 
 /* Botón oscuro redondeado */
@@ -271,14 +293,17 @@ body {
   background-color: #2d3447;
   color: white;
   text-decoration: none;
-  padding: 8px 25px;
-  border-radius: 25px;
+  padding: 10px 28px;            /* un poco más cómodo de clickear */
+  border-radius: 999px;          /* pastilla perfecta */
   width: fit-content;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 14px;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  border: 1px solid #3f485e;     /* borde sutil para más definición */
 }
 
 .btn-ir:hover {
   background-color: #1a1e29;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
