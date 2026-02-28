@@ -244,7 +244,7 @@ body {
 
 /* La tarjeta completa */
 .card {
-  background-image: url("imagenes/fondo-posiciones.jpg");   /* ← cambia por TU imagen real */
+  background-image: url("imagenes/fondo-cards1.png");   /* ← cambia por TU imagen real */
   background-size: cover;             /* cubre todo el espacio sin deformar */
   background-position: center;        /* centra la imagen */
   background-repeat: no-repeat;       /* no se repite */
