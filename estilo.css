@@ -337,144 +337,164 @@ body {
   padding: 120px 8% 100px;
   position: relative;
 }
+/* Sección Historia - Versión híbrida (desktop horizontal / móvil vertical) */
+.historia-desktop {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+  padding: 80px 5% 60px;
+  position: relative;
+}
 
 .historia-desktop::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("imagenes/fondo-siluetas-volei.png") center/cover no-repeat;
+  background: url("imagenes/siluetas-volei.png") center/cover no-repeat; /* imagen sutil de fondo */
   opacity: 0.07;
-  pointer-events: none;
 }
 
 .historia-wrapper {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
 }
 
 .historia-header {
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 
 .historia-header h2 {
-  font-size: 5rem;
+  font-size: 3.5rem; /* más controlado para no romper en móvil */
   font-weight: 900;
-  margin: 0 0 24px;
+  margin-bottom: 16px;
   background: linear-gradient(90deg, #f97316, #fbbf24);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: -1px;
 }
 
 .historia-header p {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   color: #94a3b8;
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
+/* Timeline base: en móvil vertical por defecto */
 .timeline-horizontal {
-  position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 60px;
-  padding: 80px 0;
+  flex-direction: column; /* vertical por default (móvil) */
+  gap: 40px;
+  position: relative;
+  padding: 40px 0;
 }
 
-.timeline-line {
+/* Línea vertical en móvil */
+.timeline-horizontal::before {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background: linear-gradient(to right, #f97316, #ea580c, #f97316);
-  transform: translateY(-50%);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  background: linear-gradient(to bottom, #f97316, #ea580c);
+  transform: translateX(-50%);
   z-index: 0;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
+/* Cada tarjeta en móvil: centrada con año arriba */
 .timeline-card {
-  flex: 1;
-  max-width: 340px;
   background: rgba(30, 41, 59, 0.8);
   backdrop-filter: blur(10px);
-  border-radius: 24px;
-  padding: 50px 35px 40px;
-  border: 2px solid rgba(249, 115, 22, 0.25);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  border-radius: 20px;
+  padding: 40px 25px;
+  border: 2px solid rgba(249, 115, 22, 0.3);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
   text-align: center;
   position: relative;
+  z-index: 1;
   transition: all 0.4s ease;
-  z-index: 2;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 .timeline-card:hover {
-  transform: translateY(-25px);
+  transform: translateY(-10px);
   border-color: #fb923c;
-  box-shadow: 0 35px 80px rgba(249, 115, 22, 0.25);
 }
 
 .card-year {
   position: absolute;
-  top: -28px;
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
   background: #f97316;
   color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 10px 24px;
+  padding: 8px 16px;
   border-radius: 50px;
-  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.5);
-  white-space: nowrap;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
 }
 
 .card-icon {
-  font-size: 5rem;
-  margin-bottom: 24px;
-  opacity: 0.9;
+  font-size: 4rem;
+  margin-bottom: 16px;
 }
 
 .timeline-card h3 {
-  font-size: 2rem;
-  margin: 0 0 20px;
+  font-size: 1.6rem;
+  margin-bottom: 12px;
   color: #fed7aa;
 }
 
 .timeline-card p {
-  font-size: 1.15rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.6;
   color: #cbd5e1;
-  margin: 0;
 }
 
 .finale {
-  background: linear-gradient(145deg, #f97316, #ea580c);
+  background: linear-gradient(135deg, #f97316, #ea580c);
   border: none;
-  color: white;
-  transform: scale(1.12);
-  max-width: 380px;
 }
 
-.quote {
-  font-style: italic;
-  font-size: 1.35rem;
-  margin-top: 24px;
-  color: #fff7ed;
-  opacity: 0.95;
-}
-
-/* Ajuste para pantallas ultra anchas */
-@media (min-width: 1600px) {
+/* Desktop: horizontal con línea central */
+@media (min-width: 992px) {  /* tablets grandes y desktop */
   .timeline-horizontal {
-    gap: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 80px 0;
   }
+
+  /* Línea horizontal en desktop */
+  .timeline-horizontal::before {
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 6px;
+    width: auto;
+    transform: translateY(-50%);
+  }
+
   .timeline-card {
-    max-width: 400px;
-    padding: 60px 45px 50px;
+    flex: 1;
+    max-width: 320px;
+    padding: 50px 30px 40px;
+    text-align: center;
+  }
+
+  .card-year {
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .finale {
+    transform: scale(1.1); /* destaca en el centro */
+    max-width: 360px;
   }
 }
