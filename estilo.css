@@ -317,4 +317,12 @@ section {
         padding: 18px 40px;
         font-size: 1.05em;
     }
+.cards-container {
+        flex-direction: column;
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
 }
