@@ -187,7 +187,7 @@ body {
     gap: 20px;
     justify-content: center;
     padding: 40px;
-    background-color: #f9f9f9;
+    background-color: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     font-family: sans-serif;
 }
 
