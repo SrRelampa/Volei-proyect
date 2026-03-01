@@ -289,18 +289,19 @@ body {
 }
 
 /* ────────────────────────────────────────────────
-   SECCIÓN HISTORIA (desktop)
+   SECCIÓN HISTORIA (desktop) - Más naranja visible
 ───────────────────────────────────────────────── */
 
 .historia-desktop {
     background: linear-gradient(
         to bottom,
-        rgba(255, 123, 0, 0.10) 0%,      /* Toque muy sutil de naranja arriba (solo glow) */
-        rgba(255, 139, 67, 0.05) 25%,    /* Baja rápido el naranja */
-        #0f172a 60%                      /* Pasa al azul-negro Karasuno */
+        rgba(255, 123, 0, 0.25) 0%,      /* Naranja más fuerte arriba (glow notorio) */
+        rgba(255, 139, 67, 0.15) 30%,    /* Baja el naranja gradualmente */
+        rgba(15, 23, 42, 0.9) 60%,       /* Pasa fuerte al azul-negro Karasuno */
+        #0f172a 100%                     /* Fondo sólido final */
     ),
-    #0f172a;                             /* Color base/final */
-    color: white;
+    #0f172a;                             /* Fallback */
+    color: #e0f2fe;                      /* Texto principal claro para contraste */
     padding: 60px 5% 50px;
     position: relative;
 }
@@ -310,8 +311,7 @@ body {
     position: absolute;
     inset: 0;
     background: url("imagenes/siluetas-volei.png") center/cover no-repeat;
-    opacity: 0.04;  /* Muy bajo para no competir con el gradiente */
-    pointer-events: none;
+    opacity: 0.03;  /* Baja aún más para no competir con naranja */
 }
 
 .historia-wrapper {
@@ -328,15 +328,16 @@ body {
     font-size: 2.8rem;
     font-weight: 900;
     margin: 0 0 10px;
-    background: linear-gradient(90deg, #ff7b00, #ff8b43);  /* Naranja Karasuno épico */
+    background: linear-gradient(90deg, #ff7b00, #ff8b43, #fed7aa);  /* Gradiente naranja Karasuno épico */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 2px 10px rgba(255, 123, 0, 0.4);  /* Sombra naranja para pop más */
 }
 
 .historia-header p {
     font-size: 1.15rem;
-    color: #94a3b8;
+    color: #cbd5e1;  /* Gris claro suave, combina con azul-negro */
     max-width: 650px;
     margin: 0 auto;
 }
@@ -356,21 +357,21 @@ body {
     top: 50%;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(to right, #ff7b00, #ff8b43, #0f172a);  /* Naranja → azul-negro */
+    height: 6px;  /* Un poco más gruesa para que se note más */
+    background: linear-gradient(to right, #ff7b00, #ff8b43, #fed7aa, #0f172a);  /* Naranja fuerte → fade a azul-negro */
     transform: translateY(-50%);
     z-index: 0;
-    border-radius: 2px;
+    border-radius: 3px;
 }
 
 .timeline-card {
     flex: 1;
-    background: rgba(30, 41, 59, 0.75);
+    background: rgba(20, 20, 20, 0.8);  /* Fondo más oscuro para contraste con naranja */
     backdrop-filter: blur(8px);
     border-radius: 14px;
     padding: 20px 18px 18px;
-    border: 1px solid rgba(255, 123, 0, 0.15);  /* Borde sutil naranja */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255, 123, 0, 0.25);  /* Borde naranja más visible */
+    box-shadow: 0 8px 20px rgba(255, 123, 0, 0.1);  /* Sombra naranja sutil */
     text-align: center;
     position: relative;
     transition: all 0.3s ease;
@@ -383,18 +384,20 @@ body {
 
 .timeline-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(255, 123, 0, 0.12);
+    box-shadow: 0 15px 35px rgba(255, 123, 0, 0.25);
 }
 
 .card-icon {
     font-size: 2.8rem;
     margin-bottom: 10px;
+    color: #ff8b43;  /* Iconos en naranja suave para pop */
 }
 
 .timeline-card h3 {
     font-size: 1.3rem;
     margin: 0 0 8px 0;
-    color: #fed7aa;
+    color: #ffcc99;  /* Naranja claro (combina con Karasuno, legible sobre fondo oscuro) */
+    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
     text-align: center;
     width: 100%;
 }
@@ -402,7 +405,7 @@ body {
 .timeline-card p {
     font-size: 0.9rem;
     line-height: 1.45;
-    color: #cbd5e1;
+    color: #cbd5e1;  /* Gris-azul claro, legible y combina con azul-negro */
     margin: 0;
     text-align: center;
     width: 100%;
@@ -415,13 +418,13 @@ body {
     top: -16px;
     left: 50%;
     transform: translateX(-50%);
-    background: #ff7b00;  /* Naranja Karasuno */
+    background: #ff7b00;  /* Naranja fuerte Karasuno */
     color: white;
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 1rem;
     font-weight: bold;
-    box-shadow: 0 3px 10px rgba(255, 123, 0, 0.4);
+    box-shadow: 0 3px 10px rgba(255, 123, 0, 0.5);
     white-space: nowrap;
 }
 
@@ -430,6 +433,15 @@ body {
     border: none;
     transform: scale(1.04);
     max-width: 260px;
+}
+
+.finale h3, .finale p {
+    color: #ffffff;  /* Blanco puro para el finale épico */
+}
+
+.finale .quote {
+    font-style: italic;
+    color: #ffcc99;  /* Naranja claro para la cita */
 }
 
 /* ────────────────────────────────────────────────
