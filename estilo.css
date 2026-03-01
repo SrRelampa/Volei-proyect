@@ -142,24 +142,15 @@ body {
 ───────────────────────────────────────────────── */
 
 .banner {
-    background-image: 
-        linear-gradient(
-            to bottom,
-            rgba(255, 123, 0, 0.6) 0%,     /* Naranja fuerte arriba (ajusta 0.6 a 0.4-0.8 según intensidad) */
-            rgba(255, 139, 67, 0.4) 40%,   /* Naranja medio */
-            rgba(15, 23, 42, 0.85) 80%,    /* Empieza a fundir a negro-azul Karasuno */
-            #0f172a 100%                   /* Termina exactamente en el body → sin corte */
-        ),
-        url("imagenes/banner.png");
+    background-image: url("imagenes/banner.png");
     background-size: cover;
-    background-position: right center;  /* o center si prefieres */
+    background-position: right center;
     background-repeat: no-repeat;
     aspect-ratio: 2 / 1;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding-left: 40px;
-    position: relative;  /* por si agregas más después */
 }
 
 .banner-content {
@@ -188,7 +179,6 @@ body {
     color: #000;
     transform: translateY(-2px);
 }
-
 /* ────────────────────────────────────────────────
    CARDS (Posiciones / Reglas)
 ───────────────────────────────────────────────── */
