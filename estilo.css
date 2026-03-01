@@ -289,21 +289,31 @@ body {
 }
 
 /* ────────────────────────────────────────────────
-   SECCIÓN HISTORIA (desktop) - Más naranja visible
+   SECCIÓN HISTORIA (desktop) - Con forma ola sutil
 ───────────────────────────────────────────────── */
 
 .historia-desktop {
     background: linear-gradient(
         to bottom,
-        rgba(255, 123, 0, 0.25) 0%,      /* Naranja más fuerte arriba (glow notorio) */
-        rgba(255, 139, 67, 0.15) 30%,    /* Baja el naranja gradualmente */
-        rgba(15, 23, 42, 0.9) 60%,       /* Pasa fuerte al azul-negro Karasuno */
-        #0f172a 100%                     /* Fondo sólido final */
+        rgba(255, 123, 0, 0.35) 0%,      /* Naranja fuerte arriba (más notorio) */
+        rgba(255, 139, 67, 0.25) 25%,    /* Baja el naranja */
+        rgba(15, 23, 42, 0.92) 55%,      /* Transición fuerte al azul-negro */
+        #0f172a 100%                     /* Final sólido Karasuno */
     ),
-    #0f172a;                             /* Fallback */
-    color: #e0f2fe;                      /* Texto principal claro para contraste */
-    padding: 60px 5% 50px;
+    #0f172a;
+    color: #e0f2fe;
+    padding: 80px 5% 60px;               /* Más padding arriba para que la "ola" respire */
     position: relative;
+    overflow: hidden;                    /* Importante para clip-path */
+    clip-path: polygon(
+        0 0,          /* esquina superior izquierda */
+        100% 0,       /* esquina superior derecha */
+        100% 85%,     /* derecha abajo */
+        75% 92%,      /* punto curva 1 */
+        50% 88%,      /* punto medio ola */
+        25% 95%,      /* punto curva 2 */
+        0 90%         /* izquierda abajo */
+    );  /* Forma ola sutil bajando */
 }
 
 .historia-desktop::before {
@@ -311,9 +321,18 @@ body {
     position: absolute;
     inset: 0;
     background: url("imagenes/siluetas-volei.png") center/cover no-repeat;
-    opacity: 0.03;  /* Baja aún más para no competir con naranja */
+    opacity: 0.03;
+    z-index: -1;
+    pointer-events: none;
 }
 
+/* Ajustes para que el contenido no se corte raro en mobile (agrega media query abajo) */
+@media (max-width: 900px) {
+    .historia-desktop {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);  /* Quita la ola en mobile para legibilidad */
+        padding: 60px 5% 40px;
+    }
+}
 .historia-wrapper {
     max-width: 1200px;
     margin: 0 auto;
