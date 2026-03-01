@@ -10,8 +10,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, sans-serif;
-    background: #0f172a;  /* Azul-negro profundo Karasuno-style, muy usado en fanarts y combina con #ff7b00 */
-    color: #e0f2fe;       /* Texto claro para contraste */
 }
 
 /* ────────────────────────────────────────────────
@@ -179,6 +177,7 @@ body {
     color: #000;
     transform: translateY(-2px);
 }
+
 /* ────────────────────────────────────────────────
    CARDS (Posiciones / Reglas)
 ───────────────────────────────────────────────── */
@@ -289,40 +288,14 @@ body {
 }
 
 /* ────────────────────────────────────────────────
-   SECCIÓN HISTORIA - Fondo sólido naranja arriba + gradiente bajando + forma ola
+   SECCIÓN HISTORIA (desktop)
 ───────────────────────────────────────────────── */
 
 .historia-desktop {
-    background: #ff7b00;  /* Color sólido naranja Karasuno arriba (notorio) */
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: white;
-    padding: 80px 5% 100px;  /* Más padding abajo para que la ola respire */
+    padding: 60px 5% 50px;
     position: relative;
-    overflow: hidden;
-    clip-path: polygon(
-        0 0,          /* Arriba izquierda */
-        100% 0,       /* Arriba derecha */
-        100% 85%,     /* Derecha abajo */
-        70% 92%,      /* Curva ola 1 */
-        50% 88%,      /* Medio ola */
-        30% 95%,      /* Curva ola 2 */
-        0 90%         /* Izquierda abajo - termina en curva suave */
-    );  /* Forma de ola bajando - el gradiente "desaparece" en esta curva */
-}
-
-.historia-desktop::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        transparent 30%,                  /* Mantiene el naranja sólido arriba */
-        rgba(255, 123, 0, 0.6) 35%,       /* Naranja empieza a degradar */
-        rgba(255, 139, 67, 0.4) 50%,      /* Naranja medio */
-        #0f172a 80%,                      /* Pasa al azul-negro Karasuno */
-        #0f172a 100%                      /* Desaparece completamente al final */
-    );  /* Gradiente que baja y se funde al azul */
-    z-index: 0;
-    pointer-events: none;
 }
 
 .historia-desktop::before {
@@ -330,48 +303,127 @@ body {
     position: absolute;
     inset: 0;
     background: url("imagenes/siluetas-volei.png") center/cover no-repeat;
-    opacity: 0.05;  /* Sutil para no tapar el naranja */
-    z-index: -1;
+    opacity: 0.05;
 }
 
-/* Ajustes de texto para legibilidad con naranja fuerte arriba */
+.historia-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.historia-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 .historia-header h2 {
-    background: linear-gradient(90deg, white, #ffcc99);  /* Blanco a naranja claro para contraste */
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin: 0 0 10px;
+    background: linear-gradient(90deg, #f97316, #fbbf24);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
-.timeline-card {
-    background: rgba(20, 20, 20, 0.85);  /* Fondo oscuro para que el texto resalte sobre la ola */
-    border: 1px solid #ff8b43;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+.historia-header p {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    max-width: 650px;
+    margin: 0 auto;
 }
 
-.timeline-card h3 {
-    color: #ffcc99;  /* Naranja claro legible */
-}
-
-.timeline-card p {
-    color: #e0f2fe;  /* Azul claro para contraste */
+.timeline-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    padding: 40px 0 20px;
 }
 
 .timeline-horizontal::before {
-    background: linear-gradient(to right, #ff7b00, #ff8b43, #0f172a);
-    height: 6px;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #f97316, #ea580c);
+    transform: translateY(-50%);
+    z-index: 0;
+    border-radius: 2px;
+}
+
+.timeline-card {
+    flex: 1;
+    background: rgba(30, 41, 59, 0.75);
+    backdrop-filter: blur(8px);
+    border-radius: 14px;
+    padding: 20px 18px 18px;
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    max-width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(249, 115, 22, 0.18);
+}
+
+.card-icon {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.timeline-card h3 {
+    font-size: 1.3rem;
+    margin: 0 0 8px 0;
+    color: #fed7aa;
+    text-align: center;
+    width: 100%;
+}
+
+.timeline-card p {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: #cbd5e1;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    padding: 0 4px;
+    box-sizing: border-box;
 }
 
 .card-year {
-    background: #ff7b00;
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f97316;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(249, 115, 22, 0.4);
+    white-space: nowrap;
 }
 
-/* En mobile: quita la curva para evitar problemas */
-@media (max-width: 900px) {
-    .historia-desktop {
-        clip-path: none;  /* Recto en móvil */
-        padding: 60px 5% 60px;
-    }
+.finale {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    border: none;
+    transform: scale(1.04);
+    max-width: 260px;
 }
+
 /* ────────────────────────────────────────────────
    FOOTER
 ───────────────────────────────────────────────── */
