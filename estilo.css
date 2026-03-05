@@ -647,6 +647,20 @@ body {
     .court-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* Asegúrate de que estas rutas sean correctas en tu carpeta de imágenes */
+
+.bg-ofensiva {
+    background-image: url("imagenes/Of.jpg"); /* Tu foto de ataque */
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-defensiva {
+    background-image: url("imagenes/Def.jpg"); /* Tu foto de defensa */
+    background-size: cover;
+    background-position: center;
+}
+
 
 /* ────────────────────────────────────────────────
    FOOTER
