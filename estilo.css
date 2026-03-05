@@ -10,12 +10,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, sans-serif;
-    /* Fondo unificado para toda la web */
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-    background-attachment: fixed;
     color: white;
 }
-
 /* ────────────────────────────────────────────────
    HEADER / NAVBAR
 ───────────────────────────────────────────────── */
@@ -27,7 +24,8 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px 40px;
-    position: sticky;
+
+    position: sticky;     /* o -webkit-sticky si quieres máxima compatibilidad en iOS antiguos */
     top: 0;             
     z-index: 1000;       
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -54,6 +52,7 @@ body {
     font-style: italic;
 }
 
+/* ── MENÚ PRINCIPAL ── */
 .kyamo > ul {
     display: flex;
     list-style: none;
@@ -63,31 +62,39 @@ body {
     align-items: center;
 }
 
+.kyamo > ul > li {
+    position: relative;
+}
+
 .kyamo > ul > li > a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
 }
 
-.kyamo > ul > li > a:hover {
-    color: #ffcc00;
-}
-
-/* ── SUBMENÚ ── */
+/* Título "Posiciones" (padre del submenú) */
 .parent-title {
-    color: white;
+    color: white !important;
     font-weight: bold;
     cursor: pointer;
     padding: 10px 0;
     user-select: none;
+    transition: color 0.2s ease;
+}
+
+.parent-title:hover,
+.parent-title:focus {
+    color: #ffcc00 !important;
 }
 
 .parent-title::after {
     content: " ▼";
     font-size: 0.8em;
+    margin-left: 8px;
+    opacity: 0.8;
 }
 
+/* ── SUBMENÚ ── */
 .submenu {
     display: none;
     position: absolute;
@@ -96,13 +103,19 @@ body {
     background-color: #35364a;
     min-width: 220px;
     list-style: none;
+    margin: 0;
     padding: 0;
     border-radius: 0 0 8px 8px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    z-index: 10;
 }
 
-.has-submenu:hover .submenu {
-    display: block;
+.submenu li {
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.submenu li:last-child {
+    border-bottom: none;
 }
 
 .submenu a {
@@ -110,15 +123,64 @@ body {
     padding: 12px 20px;
     color: white;
     text-decoration: none;
+    transition: all 0.25s;
 }
 
 .submenu a:hover {
     background-color: #ffcc00;
     color: #35364a;
+    padding-left: 28px;
+}
+
+.has-submenu:hover .submenu {
+    display: block;
 }
 
 /* ────────────────────────────────────────────────
-   CARDS (Index)
+   BANNER
+───────────────────────────────────────────────── */
+
+.banner {
+    background-image: url("imagenes/banner.png");
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    aspect-ratio: 2 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 40px;
+}
+
+.banner-content {
+    background-color: rgba(53, 54, 74, 0.9);
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    color: white;
+}
+
+/* Botón video */
+.btn-video {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #35364a;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-video:hover {
+    background-color: #ffffff;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* ────────────────────────────────────────────────
+   CARDS (Posiciones / Reglas)
 ───────────────────────────────────────────────── */
 
 .container {
@@ -126,128 +188,335 @@ body {
     gap: 20px;
     justify-content: center;
     padding: 40px;
+    font-family: sans-serif;
 }
 
 .card {
     background-image: url("imagenes/fondo-cards1.png");
     background-size: cover;
+    background-position: center;
     border-radius: 20px;
     overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     max-width: 480px;
     width: 100%;
     height: 240px;
     display: flex;
+    align-items: stretch;
     position: relative;
-    border: 2px solid rgba(249, 115, 22, 0.3); /* Naranja sutil */
-    transition: transform 0.3s;
+    border: 3px solid #6b7280;
 }
 
 .card:hover {
     transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.card-image {
+    width: 35%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bg-posiciones {
+    background-image: url("imagenes/Po.png");
+}
+
+.bg-reglas {
+    background-image: url("imagenes/Re.jpeg");
+}
+
+.card-content {
+    width: 65%;
+    padding: 24px 28px 24px 16px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.card-content h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.45rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+}
+
+.card-content p {
+    font-size: 14.5px;
+    margin: 0 0 18px 0;
+    line-height: 1.5;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+}
+
+.btn-ir {
+    background-color: #2d3447e6;
+    backdrop-filter: blur(6px);
+    color: white;
+    padding: 10px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    border: 1px solid #4a5568;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    transition: all 0.3s;
+    width: fit-content;
+}
+
+.btn-ir:hover {
+    background-color: #1f2937;
+    transform: translateY(-3px);
 }
 
 /* ────────────────────────────────────────────────
-   SECCIÓN HISTORIA & REGLAS (Común)
+   SECCIÓN HISTORIA (desktop)
 ───────────────────────────────────────────────── */
 
-.historia-header {
-    text-align: center;
-    margin-bottom: 60px;
-    padding-top: 20px;
+.historia-desktop {
+    color: white;
+    padding: 60px 5% 50px;
+    position: relative;
 }
 
-.historia-header h2 {
-    font-size: 3rem;
-    font-weight: 900;
-    background: linear-gradient(90deg, #f97316, #fbbf24);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-transform: uppercase;
-    font-style: italic;
+.historia-desktop::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("imagenes/siluetas-volei.png") center/cover no-repeat;
+    opacity: 0.05;
 }
 
-/* ────────────────────────────────────────────────
-   APARTADO ESPECÍFICO PARA REGLAS
-───────────────────────────────────────────────── */
-
-.rules-section {
-    padding: 60px 5%;
-}
-
-.rules-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px; /* Más espacio para los iconos flotantes */
+.historia-wrapper {
     max-width: 1200px;
     margin: 0 auto;
 }
 
+.historia-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.historia-header h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin: 0 0 10px;
+    background: linear-gradient(90deg, #f97316, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.historia-header p {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.timeline-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    padding: 40px 0 20px;
+}
+
+.timeline-horizontal::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #f97316, #ea580c);
+    transform: translateY(-50%);
+    z-index: 0;
+    border-radius: 2px;
+}
+
+.timeline-card {
+    flex: 1;
+    background: rgba(30, 41, 59, 0.75);
+    backdrop-filter: blur(8px);
+    border-radius: 14px;
+    padding: 20px 18px 18px;
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    max-width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(249, 115, 22, 0.18);
+}
+
+.card-icon {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.timeline-card h3 {
+    font-size: 1.3rem;
+    margin: 0 0 8px 0;
+    color: #fed7aa;
+    text-align: center;
+    width: 100%;
+}
+
+.timeline-card p {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: #cbd5e1;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    padding: 0 4px;
+    box-sizing: border-box;
+}
+
+.card-year {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f97316;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(249, 115, 22, 0.4);
+    white-space: nowrap;
+}
+
+.finale {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    border: none;
+    transform: scale(1.04);
+    max-width: 260px;
+}
+
+
+/* ────────────────────────────────────────────────
+   APARTADO ESPECÍFICO PARA REGLAS (VoleiGame)
+───────────────────────────────────────────────── */
+
+/* Contenedor principal de la sección de reglas */
+.rules-section {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 60px 5%;
+    min-height: 80vh;
+}
+
+/* Título y subtítulo */
+.rules-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.rules-header h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0;
+    background: linear-gradient(90deg, #f97316, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+/* Grid de tarjetas de reglas */
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo de cada tarjeta de regla */
 .rule-item {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    padding: 40px 25px 25px;
+    padding: 30px;
     position: relative;
     transition: all 0.3s ease;
-    margin-top: 30px; /* Espacio para el icono que sobresale */
-}
-
-/* Círculo del Icono */
-.rule-icon-circle {
-    width: 65px;
-    height: 65px;
-    background: #35364a;
-    border: 3px solid #f97316;
-    border-radius: 50%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    position: absolute;
-    top: -32px; /* Mitad afuera */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .rule-item:hover {
-    transform: translateY(-5px);
-    border-color: #f97316;
+    transform: translateY(-10px);
     background: rgba(255, 255, 255, 0.08);
+    border-color: #f97316;
 }
 
+/* Número de la regla (arriba a la derecha) */
 .rule-number {
     position: absolute;
-    top: 5px;
-    right: 15px;
-    font-size: 3.5rem;
+    top: -10px;
+    right: 10px;
+    font-size: 4rem;
     font-weight: 900;
-    color: rgba(249, 115, 22, 0.07);
-    z-index: 1;
+    color: rgba(249, 115, 22, 0.1);
+    z-index: 0;
 }
 
 .rule-item h3 {
     color: #fbbf24;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    margin: 0 0 15px 0;
+    position: relative;
+    z-index: 1;
 }
 
 .rule-item p {
     color: #cbd5e1;
-    text-align: center;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    position: relative;
+    z-index: 1;
 }
 
-/* SANCIONES */
-.rule-item.penalty { border-left: 5px solid #f97316; }
+/* Estilos para las tarjetas de sanciones (Tarjetas de árbitro) */
+.rule-item.penalty {
+    border-left: 5px solid #f97316;
+}
+
 .rule-item.yellow-card { border-left-color: #fbbf24; }
 .rule-item.red-card { border-left-color: #ef4444; }
-.rule-item.expulsion { 
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(30, 41, 59, 0.5)); 
-}
+.rule-item.expulsion { background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(234, 88, 12, 0.2)); }
+
 
 /* ────────────────────────────────────────────────
    FOOTER
@@ -255,8 +524,9 @@ body {
 
 .site-footer {
     background: #35364a;
+    color: #94a3b8;
     padding: 50px 5% 30px;
-    margin-top: 50px;
+    font-family: sans-serif;
 }
 
 .footer-wrapper {
@@ -265,23 +535,77 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: center;
+}
+
+.footer-logo {
+    width: 90px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    font-size: 0.95rem;
+}
+
+.contact-info a {
+    color: #94a3b8;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #f97316;
+}
+
+.icon {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 10px;
 }
 
 .social-icons img {
     width: 32px;
-    margin: 0 10px;
+    height: 32px;
     transition: transform 0.3s;
 }
 
 .social-icons img:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
 }
 
 .footer-bottom {
     text-align: center;
+    margin-top: 40px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    margin-top: 30px;
+    border-top: 1px solid #334155;
+    font-size: 0.9rem;
     color: #64748b;
 }
 
@@ -290,8 +614,63 @@ body {
 ───────────────────────────────────────────────── */
 
 @media (max-width: 768px) {
-    .kyamo { flex-direction: column; padding: 20px; }
-    .kyamo > ul { flex-direction: column; gap: 15px; margin-top: 20px; }
-    .rules-grid { grid-template-columns: 1fr; }
-    .historia-header h2 { font-size: 2.2rem; }
+    /* Header / Navbar */
+    .kyamo {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .kyamo > ul {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .parent-title {
+        display: block;
+        width: 100%;
+        padding: 18px 0;
+        font-size: 1.15em;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: #2c2d3f;
+        padding: 0 0 12px 0;
+    }
+
+    .has-submenu .submenu {
+        display: none;
+    }
+
+    .has-submenu:focus-within .submenu,
+    .has-submenu:active .submenu {
+        display: block !important;
+    }
+
+    .submenu a {
+        padding: 18px 40px;
+        font-size: 1.05em;
+    }
+
+    /* Footer */
+    .footer-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1400px) {
+    .timeline-horizontal {
+        gap: 30px;
+    }
+    .timeline-card {
+        max-width: 280px;
+    }
 }
