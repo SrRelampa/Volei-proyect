@@ -424,6 +424,101 @@ body {
     max-width: 260px;
 }
 
+
+/* ────────────────────────────────────────────────
+   APARTADO ESPECÍFICO PARA REGLAS (VoleiGame)
+───────────────────────────────────────────────── */
+
+/* Contenedor principal de la sección de reglas */
+.rules-section {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 60px 5%;
+    min-height: 80vh;
+}
+
+/* Título y subtítulo */
+.rules-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.rules-header h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0;
+    background: linear-gradient(90deg, #f97316, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+/* Grid de tarjetas de reglas */
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo de cada tarjeta de regla */
+.rule-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.rule-item:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #f97316;
+}
+
+/* Número de la regla (arriba a la derecha) */
+.rule-number {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(249, 115, 22, 0.1);
+    z-index: 0;
+}
+
+.rule-item h3 {
+    color: #fbbf24;
+    font-size: 1.4rem;
+    margin: 0 0 15px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.rule-item p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilos para las tarjetas de sanciones (Tarjetas de árbitro) */
+.rule-item.penalty {
+    border-left: 5px solid #f97316;
+}
+
+.rule-item.yellow-card { border-left-color: #fbbf24; }
+.rule-item.red-card { border-left-color: #ef4444; }
+.rule-item.expulsion { background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(234, 88, 12, 0.2)); }
+
+
 /* ────────────────────────────────────────────────
    FOOTER
 ───────────────────────────────────────────────── */
