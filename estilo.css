@@ -561,6 +561,93 @@ body {
 }
 .expulsion .rule-icon-circle { border-color: #ea580c; }
 
+
+/* ────────────────────────────────────────────────
+   DISEÑO DE PÁGINA POSICIONES (No tarjetas)
+───────────────────────────────────────────────── */
+
+.positions-page {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.content-block {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 80px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.content-block.reverse { flex-direction: row-reverse; }
+
+.section-subtitle {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fbbf24;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.section-subtitle.center { text-align: center; margin-bottom: 30px; }
+.center-text { text-align: center; color: #94a3b8; margin-bottom: 40px; }
+
+.accent-line {
+    width: 5px;
+    height: 100px;
+    background: #f97316;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.5);
+}
+
+/* --- PIZARRA TÁCTICA (La Cancha) --- */
+.tactical-board {
+    background: rgba(15, 23, 42, 0.6);
+    border: 2px solid #334155;
+    padding: 40px;
+    border-radius: 30px;
+    margin-bottom: 80px;
+}
+
+.court-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.zone {
+    background: rgba(249, 115, 22, 0.1);
+    border: 2px dashed rgba(249, 115, 22, 0.4);
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.zone:hover {
+    background: rgba(249, 115, 22, 0.2);
+    border-style: solid;
+}
+
+.zone span { font-size: 2rem; font-weight: 900; color: #f97316; }
+.zone p { font-size: 0.8rem; margin: 5px 0 0; color: #cbd5e1; font-weight: bold; }
+
+.note { text-align: center; margin-top: 25px; font-size: 0.9rem; color: #64748b; }
+
+@media (max-width: 768px) {
+    .content-block { flex-direction: column; text-align: center; }
+    .court-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+
 /* ────────────────────────────────────────────────
    FOOTER
 ───────────────────────────────────────────────── */
