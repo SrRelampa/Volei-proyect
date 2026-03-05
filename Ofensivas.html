@@ -1,13 +1,121 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-<title> voleigame </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoleiGame - Sistemas Ofensivos</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
-
 <body>
-<h1> Ofensivas </h1>
-<p> meh info</p>
-</body>
 
+<nav class="kyamo">
+    <div class="left">
+        <img src="imagenes/Logo.png" alt="Logo VoleiGame" class="logo">
+        <h2 class="brand-name">VoleiGame</h2>
+    </div>
+    <ul class="main-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="has-submenu">
+            <span class="parent-title">Posiciones</span>
+            <ul class="submenu">
+                <li><a href="Posiciones.html">Posiciones de jugadores</a></li>
+                <li><a href="Ofensivas.html">Estrategias ofensivas</a></li>
+                <li><a href="Defensivas.html">Estrategias defensivas</a></li>
+            </ul>
+        </li>
+        <li><a href="Reglas.html">Reglas</a></li>
+    </ul>
+</nav>
+
+<section class="strategy-page">
+    <div class="historia-header">
+        <h2>ESPECIALISTAS EN ATAQUE</h2>
+        <p>En el sistema ofensivo, cada jugador tiene un rol diseñado para confundir al bloqueo rival y maximizar la potencia de remate.</p>
+    </div>
+
+    <div class="strategy-container">
+        
+        <article class="strategy-card">
+            <div class="strategy-img" style="background-image: url('imagenes/ofensiva/armador.jpg');">
+                <div class="zone-badge">Zona 1, 6 o 2</div>
+            </div>
+            <div class="strategy-info">
+                <span class="role-tag">El Cerebro</span>
+                <h3>Armador (Setter)</h3>
+                <p><strong>Qué hace:</strong> Es el pilar de la ofensiva. Decide a quién entregarle el balón según la posición del bloqueo contrario. Realiza el "toque de segunda" y coordina los tiempos de remate.</p>
+                <div class="extra-detail">
+                    <span><strong>Nivel:</strong> Director</span>
+                    <span><strong>Habilidad:</strong> Visión de Juego</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="strategy-card reverse">
+            <div class="strategy-img" style="background-image: url('imagenes/ofensiva/opuesto.jpg');">
+                <div class="zone-badge">Zona 2 o 1</div>
+            </div>
+            <div class="strategy-info">
+                <span class="role-tag">Máxima Potencia</span>
+                <h3>Opuesto</h3>
+                <p><strong>Qué hace:</strong> Es el mayor anotador del equipo. Se ubica en posición opuesta al armador. Ataca principalmente por la derecha y es especialista en remates desde la zona zaguera.</p>
+                <div class="extra-detail">
+                    <span><strong>Nivel:</strong> Finalizador</span>
+                    <span><strong>Habilidad:</strong> Remate Zaguero</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="strategy-card">
+            <div class="strategy-img" style="background-image: url('imagenes/ofensiva/punta.jpg');">
+                <div class="zone-badge">Zona 4</div>
+            </div>
+            <div class="strategy-info">
+                <span class="role-tag">Atacante Externo</span>
+                <h3>Punta (Outside Hitter)</h3>
+                <p><strong>Qué hace:</strong> Ataca por la banda izquierda. Además de rematar, es fundamental en la recepción del saque para permitir que el armador pueda ejecutar la jugada.</p>
+                <div class="extra-detail">
+                    <span><strong>Nivel:</strong> Versátil</span>
+                    <span><strong>Habilidad:</strong> Recepción y Ataque</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="strategy-card reverse">
+            <div class="strategy-img" style="background-image: url('imagenes/ofensiva/central.jpg');">
+                <div class="zone-badge">Zona 3</div>
+            </div>
+            <div class="strategy-info">
+                <span class="role-tag">Velocidad</span>
+                <h3>Central (Middle Hitter)</h3>
+                <p><strong>Qué hace:</strong> Realiza ataques de "primer tiempo" (balones muy rápidos y cortos). Su objetivo es atraer al bloqueo rival para dejar a los laterales libres o anotar por velocidad pura.</p>
+                <div class="extra-detail">
+                    <span><strong>Nivel:</strong> Explosivo</span>
+                    <span><strong>Habilidad:</strong> Tiempo de Salto</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="strategy-card">
+            <div class="strategy-img" style="background-image: url('imagenes/ofensiva/saque.jpg');">
+                <div class="zone-badge">Línea de Fondo</div>
+            </div>
+            <div class="strategy-info">
+                <span class="role-tag">Primera Ofensiva</span>
+                <h3>Sacador (Server)</h3>
+                <p><strong>Qué hace:</strong> El saque es el primer ataque. Los especialistas buscan zonas de conflicto entre receptores o potencia pura para lograr un "Ace" (punto directo).</p>
+                <div class="extra-detail">
+                    <span><strong>Nivel:</strong> Iniciador</span>
+                    <span><strong>Habilidad:</strong> Precisión de Saque</span>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-bottom">© 2026 VoleiGame. El arte de la ofensiva 🏐</div>
+</footer>
+
+</body>
 </html>
