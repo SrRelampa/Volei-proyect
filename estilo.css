@@ -430,15 +430,14 @@ body {
 
 /* Contenedor principal de la sección de reglas */
 .rules-section {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     padding: 60px 5%;
     min-height: 80vh;
 }
 
-/* Título y subtítulo */
+/* Título y subtítulo (Estilo Historia) */
 .rules-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .rules-header h2 {
@@ -449,13 +448,14 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
+    font-style: italic;
 }
 
 /* Grid de tarjetas de reglas */
 .rules-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    gap: 45px 25px; /* Más espacio vertical para que los iconos no choquen */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -466,80 +466,100 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
-    padding: 30px;
-    margin-top: 40px;    /* Espacio para que el círculo no choque con lo de arriba */
-    padding-top: 45px;
+    padding: 50px 25px 30px; /* Padding superior mayor para el icono */
     position: relative;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    overflow: visible;
+    align-items: center; /* Centra el contenido */
+    text-align: center;
+    overflow: visible;   /* IMPORTANTE: permite que el icono sobresalga */
 }
 
 .rule-item:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     background: rgba(255, 255, 255, 0.08);
     border-color: #f97316;
 }
 
-/* Número de la regla (arriba a la derecha) */
+/* Icono circular flotante */
+.rule-icon-circle {
+    width: 65px;
+    height: 65px;
+    background: #35364a; /* Fondo sólido igual al menú */
+    border: 3px solid #f97316;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    
+    /* Posicionamiento flotante */
+    position: absolute;
+    top: -32.5px; /* Mitad exacta hacia afuera */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Efecto en el icono al hacer hover en la tarjeta */
+.rule-item:hover .rule-icon-circle {
+    border-color: #fbbf24;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
+    transform: translateX(-50%) scale(1.1);
+}
+
+/* Número de la regla (fondo) */
 .rule-number {
     position: absolute;
     top: 5px;
     right: 15px;
     font-size: 3.5rem;
     font-weight: 900;
-    color: rgba(249, 115, 22, 0.08); /* Súper transparente */
+    color: rgba(249, 115, 22, 0.08); /* Sutil y elegante */
     z-index: 1;
+    pointer-events: none;
 }
 
 .rule-item h3 {
     color: #fbbf24;
-    font-size: 1.4rem;
-    margin: 0 0 15px 0;
+    font-size: 1.5rem;
+    margin: 10px 0 12px 0;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .rule-item p {
     color: #cbd5e1;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
     margin: 0;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
-/* Estilos para las tarjetas de sanciones (Tarjetas de árbitro) */
+/* ────────────────────────────────────────────────
+   SISTEMA DE SANCIONES (Tarjetas de árbitro)
+───────────────────────────────────────────────── */
+
 .rule-item.penalty {
     border-left: 5px solid #f97316;
 }
 
-.rule-item.yellow-card { border-left-color: #fbbf24; }
-.rule-item.red-card { border-left-color: #ef4444; }
-.rule-item.expulsion { background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(234, 88, 12, 0.2)); }
+/* Colores específicos según la gravedad */
+.yellow-card .rule-icon-circle { border-color: #fbbf24; }
+.yellow-card h3 { color: #fbbf24; }
 
-/* Estilo para el icono */
-.rule-icon-circle {
-    width: 60px;
-    height: 60px;
-    background: #35364a; /* Fondo sólido para que no se vea el borde de la tarjeta atrás */
-    border: 3px solid #f97316; /* Tu naranja de marca */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
+.red-card .rule-icon-circle { border-color: #ef4444; }
+.red-card h3 { color: #ef4444; }
 
-    /* Esto es lo que hace que flote */
-    position: absolute;
-    top: -30px; /* Sube el círculo a la mitad hacia afuera */
-    left: 50%;
-    transform: translateX(-50%); /* Lo centra perfectamente */
-    
-    z-index: 10;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Sombra para dar profundidad */
+.expulsion { 
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(30, 41, 59, 0.4)); 
 }
+.expulsion .rule-icon-circle { border-color: #ea580c; }
 
 /* ────────────────────────────────────────────────
    FOOTER
